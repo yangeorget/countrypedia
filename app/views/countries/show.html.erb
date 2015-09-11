@@ -1,9 +1,11 @@
-<p>
-<%= @country.name %>
-</p>
-
-<p>
-<%= @country.wikipedia.to_s %>
-</P>
-
 <%= link_to 'Back', @country.language %>
+
+<h1><%= @country.name %></h1>
+
+<h2>Google</h2>
+<img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @country.name %>&size=600x400
+&key=AIzaSyCRckkdFPzcbgqL2-PAhmo6aEDNU8hITQM"/>
+
+<h2>Wikipedia</h2>
+<%= raw(@country.wikipedia_info) %>
+

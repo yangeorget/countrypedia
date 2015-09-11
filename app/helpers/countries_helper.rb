@@ -1,2 +1,2 @@
-module CountriesHelper
+module CountriesHelper  
 end
