@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  resources :countries, :only => [:index, :show]
+  resources :languages, :only => [:index, :show] do
+    resources :countries, :only => [:show]
+  end
+
+  root to: "languages#index"
 end

@@ -1,0 +1,9 @@
+<ul>
+  <% @language.countries.each do |country| %>
+  <li>
+    <%= link_to country.name, [@language, country] %>
+  </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back', languages_path %>

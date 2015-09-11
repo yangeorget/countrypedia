@@ -1,3 +1,3 @@
-heroku
-friendlyid
-cache data in db
+deploy heroku
+friendlyid for nice urls
+cache scraped data in db, in cache?
