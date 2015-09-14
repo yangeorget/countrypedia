@@ -1,23 +1,24 @@
 source 'https://rubygems.org'
 ruby "2.2.0"
 
-gem 'rails', '4.2.4'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
-gem 'jquery-rails'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'bootstrap-sass', '~> 3.3.1'
-gem 'autoprefixer-rails'
-gem 'nokogiri', '>= 1.6'
 gem "html_truncator", "~>0.2"
-gem 'rails-html-sanitizer'
-gem 'httparty'
+gem 'autoprefixer-rails'
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'coffee-rails', '~> 4.1.0'
 gem 'friendly_id', '~> 5.1.0' 
-gem 'weather-api'
+gem 'httparty'
+gem 'jbuilder', '~> 2.0'
+gem 'jquery-rails'
+gem 'nokogiri', '>= 1.6'
 gem 'pg'
+gem 'rails', '4.2.4'
+gem 'rails-html-sanitizer'
+gem 'rails_12factor'
+gem 'sass-rails', '~> 5.0'
+gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
+gem 'weather-api'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
