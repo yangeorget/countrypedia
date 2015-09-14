@@ -39,7 +39,7 @@ gem "html_truncator", "~>0.2"
 gem 'rails-html-sanitizer'
 gem 'httparty'
 gem 'friendly_id', '~> 5.1.0' 
-gem "chartkick"
+gem 'weather-api'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

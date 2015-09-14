@@ -3,6 +3,7 @@ require 'open-uri'
 require 'html_truncator'
 require 'httparty'
 require 'webrick/httputils'
+require 'weather-api'
 
 class Country < ActiveRecord::Base
   extend FriendlyId
@@ -67,7 +68,11 @@ class Country < ActiveRecord::Base
     end
     data
   end
-  
+
+  def weather(woeid)
+    Weather.lookup(woeid, Weather::Units::CELSIUS)
+  end
+
   def self.url_or_text_from_code3(code3)
     country = Country.find_by_code3(code3.downcase)
     if country

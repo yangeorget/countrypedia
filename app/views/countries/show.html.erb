@@ -30,6 +30,13 @@
       <dt><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">Alpha3 code</a></dt><dd><%= info['alpha3Code'] %></dd>
     </dl>
     
+    <h2>Weather</h2>
+    <dl class="dl-horizontal">
+      <% weather = Weather.lookup(@country.woeid, Weather::Units::CELSIUS) %>
+      <dt>Temperature</dt><dd><%= weather.condition.temp %> Celsius degrees</dd>
+      <dt>Details</dt><dd><%= weather.condition.text %></dd>
+    </dl>
+
     <h2>Money</h2>
     <dl class="dl-horizontal">
       <dt>Currencies</dt><dd><%= info['currencies'].join(", ") %></dd>

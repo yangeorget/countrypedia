@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150914104841) do
+ActiveRecord::Schema.define(version: 20150914132815) do
 
   create_table "countries", force: :cascade do |t|
     t.string   "name"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20150914104841) do
     t.integer  "language_id"
     t.string   "code3"
     t.string   "region_code"
+    t.string   "capital"
+    t.string   "woeid"
   end
 
   add_index "countries", ["language_id"], name: "index_countries_on_language_id"
