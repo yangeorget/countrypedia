@@ -1,5 +1,9 @@
-<%= link_to 'Back', languages_path %>
+<ol class="breadcrumb">
+  <li><a href="<%= languages_path %>">Home</a></li>
+  <li><a href="<%= language_path(@language) %>"><%= @language.name %></a></li>
+</ol>
 
+<p>Please choose among the following countries:</p>
 <ul>
   <% @language.countries.each do |country| %>
   <li>
