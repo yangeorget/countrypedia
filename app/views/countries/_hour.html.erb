@@ -4,7 +4,16 @@
   </div>
   <div class="panel-body">
     <dl class="dl-horizontal">
-      <dt>Timezones</dt><dd><%= info['timezones'].join(", ") %></dd>
+      <dt>
+	Timezones
+      </dt>
+      <dd>
+	<ul class="list-unstyled">
+	  <% info['timezones'].each do |timezone| %>
+	  <li><%= timezone %></li>
+	  <% end %>
+	</ul>
+      </dd>
     </dl>
   </div>
 </div>
