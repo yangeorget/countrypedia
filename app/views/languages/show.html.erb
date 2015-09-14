@@ -3,12 +3,13 @@
   <li><a href="<%= language_path(@language) %>"><%= @language.name %></a></li>
 </ol>
 
-<p>Please choose among the following countries:</p>
-<ul>
-  <% @language.countries.each do |country| %>
-  <li>
-    <%= link_to country.name, [@language, country] %>
-  </li>
-  <% end %>
-</ul>
-
+<div class="panel panel-default">
+  <div class="panel-heading">Please choose among the following countries</div>
+  <ul class="list-group">
+    <% @language.countries.each do |country| %>
+    <li class="list-group-item">
+      <%= link_to country.name, [@language, country] %>
+    </li>
+    <% end %>
+  </ul>
+</div>

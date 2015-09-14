@@ -7,8 +7,7 @@
 </div>
 
 <div class="panel panel-default">
-  <div class="panel-heading">Please choose among the following languages to discover the available countries
-  </div>
+  <div class="panel-heading">Please choose among the following languages to discover the available countries</div>
   <ul class="list-group">
     <% @languages.each do |language| %>
     <li class="list-group-item">

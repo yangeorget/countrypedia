@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Geography</h3>
+  </div>
+  <div class="panel-body">
+    <dl class="dl-horizontal">
+      <dt>Capital</dt><dd><%= info['capital'] %></dd>
+      <dt>Region</dt><dd><%= info['region'] %></dd>
+      <dt>Sub-region</dt><dd><%= info['subregion'] %></dd>
+      <dt>Latitude</dt><dd><%= info['latlng'][0] %></dd>
+      <dt>Longitude</dt><dd><%= info['latlng'][1] %></dd>
+      <dt>Area</dt><dd><%= info['area'] %></dd>
+      <dt>Borders</dt><dd><%= raw(info['borders'].map{ |code3| Country.url_or_text_from_code3(code3) }.join(", ")) %></dd>
+    </dl>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["geochart"]});
+      google.setOnLoadCallback(drawRegionsMap);
+      function drawRegionsMap() {
+      var data = google.visualization.arrayToDataTable(<%= raw(country.geochart_from_borders(info['borders'])) %>);
+      var options = { region: '<%= country.region_code %>'};
+      var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+      chart.draw(data, options);
+      }
+    </script>
+    <div id="regions_div" style="width: 600px; height: 400px;"></div>
+</div>

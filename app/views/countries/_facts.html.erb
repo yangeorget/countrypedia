@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Facts</h3>
+  </div>
+  <div class="panel-body">
+    <dl class="dl-horizontal">
+      <dt>Flag</dt><dd><%= image_tag country.flag %></dd>
+      <dt>Languages</dt><dd><%= raw(info['languages'].map{ |code| Language.url_or_text_from_code(code) }.join(", ")) %></dd>
+      <dt>Population</dt><dd><%= info['population'] %></dd>
+      <dt>Top Level Domain</dt><dd><%= info['topLevelDomain'][0] %></dd>
+      <dt><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">Alpha2 code</a></dt><dd><%= info['alpha2Code'] %></dd>
+      <dt><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">Alpha3 code</a></dt><dd><%= info['alpha3Code'] %></dd>
+    </dl>
+  </div>
+</div>
+

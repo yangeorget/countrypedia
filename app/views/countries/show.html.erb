@@ -20,59 +20,15 @@
 
 <div class="row">
   <div class="col-md-4">
-    <h2>Facts</h2>
-    <dl class="dl-horizontal">
-      <dt>Flag</dt><dd><%= image_tag @country.flag %></dd>
-      <dt>Languages</dt><dd><%= raw(info['languages'].map{ |code| Language.url_or_text_from_code(code) }.join(", ")) %></dd>
-      <dt>Population</dt><dd><%= info['population'] %></dd>
-      <dt>Top Level Domain</dt><dd><%= info['topLevelDomain'][0] %></dd>
-      <dt><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">Alpha2 code</a></dt><dd><%= info['alpha2Code'] %></dd>
-      <dt><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">Alpha3 code</a></dt><dd><%= info['alpha3Code'] %></dd>
-    </dl>
-    
-    <h2>Weather</h2>
-    <dl class="dl-horizontal">
-      <% weather = Weather.lookup(@country.woeid, Weather::Units::CELSIUS) %>
-      <dt>Temperature</dt><dd><%= weather.condition.temp %> Celsius degrees</dd>
-      <dt>Details</dt><dd><%= weather.condition.text %></dd>
-    </dl>
-
-    <h2>Money</h2>
-    <dl class="dl-horizontal">
-      <dt>Currencies</dt><dd><%= info['currencies'].join(", ") %></dd>
-    </dl>
-
-    <h2>Hour</h2>
-    <dl class="dl-horizontal">
-      <dt>Timezones</dt><dd><%= info['timezones'].join(", ") %></dd>
-    </dl>
+    <%= render partial: "facts", locals: {country: @country, info: info} %>
+    <%= render partial: "weather", locals: {country: @country, info: info} %>
+    <%= render partial: "money", locals: {country: @country, info: info} %>
+    <%= render partial: "hour", locals: {country: @country, info: info} %>
   </div>
 
   <div class="col-md-8">
-    <h2><a href="<%= @country.wikipedia_url %>">Wikipedia</a></h2>
-    <%= raw(@country.wikipedia_info) %>
-
-    <h2>Geography</h2>
-    <dl class="dl-horizontal">
-      <dt>Capital</dt><dd><%= info['capital'] %></dd>
-      <dt>Region</dt><dd><%= info['region'] %></dd>
-      <dt>Sub-region</dt><dd><%= info['subregion'] %></dd>
-      <dt>Latitude</dt><dd><%= info['latlng'][0] %></dd>
-      <dt>Longitude</dt><dd><%= info['latlng'][1] %></dd>
-      <dt>Area</dt><dd><%= info['area'] %></dd>
-      <dt>Borders</dt><dd><%= raw(info['borders'].map{ |code3| Country.url_or_text_from_code3(code3) }.join(", ")) %></dd>
-    </dl>
-    <script type="text/javascript">
-      google.load("visualization", "1", {packages:["geochart"]});
-      google.setOnLoadCallback(drawRegionsMap);
-      function drawRegionsMap() {
-      var data = google.visualization.arrayToDataTable(<%= raw(@country.geochart_from_borders(info['borders'])) %>);
-      var options = { region: '<%= @country.region_code %>'};
-      var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
-      chart.draw(data, options);
-      }
-    </script>
-    <div id="regions_div" style="width: 600px; height: 400px;"></div>
+    <%= render partial: "wikipedia", locals: {country: @country, info: info} %>
+    <%= render partial: "geography", locals: {country: @country, info: info} %>
   </div>
 </div>
 
