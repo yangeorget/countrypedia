@@ -36,8 +36,8 @@ class Country < ActiveRecord::Base
     URI.escape("https://maps.googleapis.com/maps/api/staticmap?center=#{ name }&key=AIzaSyCRckkdFPzcbgqL2-PAhmo6aEDNU8hITQM")
   end
 
-  def flag_url
-    "/assets/#{ code2.downcase }.png"
+  def flag
+    "#{ code2.downcase }.png"
   end
   
   def restcountries_url 

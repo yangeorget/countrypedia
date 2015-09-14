@@ -22,7 +22,7 @@
   <div class="col-md-4">
     <h2>Facts</h2>
     <dl class="dl-horizontal">
-      <dt>Flag</dt><dd><img src="<%= @country.flag_url %>"/></dd>
+      <dt>Flag</dt><dd><%= image_tag @country.flag %></dd>
       <dt>Languages</dt><dd><%= raw(info['languages'].map{ |code| Language.url_or_text_from_code(code) }.join(", ")) %></dd>
       <dt>Population</dt><dd><%= info['population'] %></dd>
       <dt>Top Level Domain</dt><dd><%= info['topLevelDomain'][0] %></dd>
