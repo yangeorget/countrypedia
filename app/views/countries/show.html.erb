@@ -16,12 +16,15 @@
 <div class="row">
   <div class="col-md-4">
     <%= render partial: "facts", locals: {country: @country, info: info} %>
-    <%= render partial: "weather", locals: {country: @country, info: info} %>
+    <!-- <%= render partial: "weather", locals: {country: @country, info: info} %> -->
     <%= render partial: "money", locals: {country: @country, info: info} %>
     <%= render partial: "hour", locals: {country: @country, info: info} %>
   </div>
   <div class="col-md-8">
     <%= render partial: "wikipedia", locals: {country: @country, info: info} %>
+  </div>
+  <div class="col-md-12">
+   <!--  <%= render partial: "pictures", locals: {country: @country, info: info} %> -->
   </div>
   <div class="col-md-12">
     <%= render partial: "geography", locals: {country: @country, info: info} %>

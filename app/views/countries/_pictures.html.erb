@@ -1,0 +1,10 @@
+<% 
+   json = @country.googleimagessearch 
+   json.each do |result| 
+%>
+<a href="#" class="thumbnail">
+  <img src="<%= result.url %>">
+</a>
+<%
+   end
+%>

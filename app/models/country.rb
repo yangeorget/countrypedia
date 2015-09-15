@@ -53,7 +53,17 @@ class Country < ActiveRecord::Base
     end
     json
   end
-  
+
+  def googleimagessearch_url
+    "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=medium&rsz=4&q=#{ name }"
+  end
+
+  def googleimagessearch
+    doc = HTTParty.get(googleimagessearch_url)
+    puts doc['responseData']['results'].to_s
+    doc['responseData']['results']
+  end   
+
   def openexchangerates_url
     "https://openexchangerates.org/api/latest.json?app_id=780adb29f52c4bbc92cadac35bace194"
   end
@@ -79,8 +89,8 @@ class Country < ActiveRecord::Base
     data
   end
 
-  def weather(woeid)
-    Weather.lookup(woeid, Weather::Units::CELSIUS)
+  def weather
+    # Weather.lookup(woeid, Weather::Units::CELSIUS)
   end
 end
 

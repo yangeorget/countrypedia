@@ -1,10 +1,11 @@
+<!--
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title"><%= t('countries.show.weather') %></h3>
   </div>
   <div class="panel-body">
     <dl class="dl-horizontal">
-      <% weather = Weather.lookup(country.woeid, Weather::Units::CELSIUS) %>
+      <% weather = country.weather %>
       <dt>
 	<%= t('countries.show.temperature') %>
       </dt>
@@ -15,3 +16,4 @@
     </dl>
   </div>
 </div>
+-->
