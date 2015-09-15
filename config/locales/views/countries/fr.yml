@@ -1,0 +1,28 @@
+fr:	
+  countries:
+    index:
+      choose_country: "Merci de choisir parmi les pays suivants"	
+    show:
+      facts: "Quelques faits" 
+      flag: "Drapeau"
+      languages: "Langages"
+      population: "Population"
+      tld: "Top Level Domain"
+      alpha2: "Code alpha2"
+      alpha3: "Code alpha3"
+      geography: "Géographie"
+      capital: "Capitale"
+      region: "Région"
+      subregion: "Sous-région"
+      latitude: "Latitude"
+      longitude: "Longitude"
+      area: "Surface"
+      borders: "Frontières"
+      hour: "Heure"
+      timezones: "Zones horaires"
+      money: "monnaie"
+      currencies: "Monnaies"
+      weather: "Temps"
+      temperature: "Température"
+      details: "Détails"
+      celsiusdegrees: "Degrés Celsius"
