@@ -55,13 +55,14 @@ class Country < ActiveRecord::Base
   end
 
   def googleimagessearch_url
-    "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=medium&rsz=4&q=#{ name }"
+    "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&rsz=4&q=#{ I18n.t(name) }+tourism" # TODO: fixme
   end
 
   def googleimagessearch
-    doc = HTTParty.get(googleimagessearch_url)
-    puts doc['responseData']['results'].to_s
-    doc['responseData']['results']
+    json = Rails.cache.fetch(googleimagessearch_url, :expires_in => 1.day) do
+      HTTParty.get(googleimagessearch_url, {format: :json})['responseData']['results']
+    end
+    json
   end   
 
   def openexchangerates_url
@@ -90,7 +91,10 @@ class Country < ActiveRecord::Base
   end
 
   def weather
-    # Weather.lookup(woeid, Weather::Units::CELSIUS)
+    json = Rails.cache.fetch(woeid, :expires_in => 1.hour) do
+      Weather.lookup(woeid, Weather::Units::CELSIUS)
+    end
+    json
   end
 end
 
