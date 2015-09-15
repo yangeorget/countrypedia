@@ -49,11 +49,22 @@ class Country < ActiveRecord::Base
 
   def restcountries_code
     json = Rails.cache.fetch(restcountries_code_url, :expires_in => 1.day) do
-          HTTParty.get(restcountries_code_url)[0]
+      HTTParty.get(restcountries_code_url)[0]
     end
     json
   end
-
+  
+  def openexchangerates_url
+    "https://openexchangerates.org/api/latest.json?app_id=780adb29f52c4bbc92cadac35bace194"
+  end
+  
+  def openexchangerates
+    json = Rails.cache.fetch(openexchangerates_url, :expires_in => 1.day) do
+      HTTParty.get(openexchangerates_url)['rates']
+    end
+    json
+  end
+  
   def geochart_from_borders(borders)
     data = [
      ['Country', 'Neighbor'],

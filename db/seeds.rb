@@ -14,7 +14,7 @@ Country.create(region_code: "150", woeid: "23424803", code2: "ie", code3: "irl",
 Country.create(region_code: "150", woeid: "23424812", code2: "fi", code3: "fin", name: "finland")
 Country.create(region_code: "150", woeid: "23424976", code2: "ua", code3: "ukr", name: "ukraine")
 Country.create(region_code: "150", woeid: "23424925", code2: "pt", code3: "prt", name: "portugal")
-Country.create(region_code: "150", woeid: "23424975", code2: "uk", code3: "gbr", name: "unitedkingdom")
+Country.create(region_code: "150", woeid: "23424975", code2: "gb", code3: "gbr", name: "unitedkingdom")
 Country.create(region_code: "150", woeid: "23424950", code2: "es", code3: "esp", name: "spain")
 Country.create(region_code: "150", woeid: "23424819", code2: "fr", code3: "fra", name: "france")
 Country.create(region_code: "150", woeid: "23424950", code2: "at", code3: "aut", name: "austria")
