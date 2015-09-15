@@ -8,14 +8,13 @@ require 'weather-api'
 class Country < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name
-  belongs_to :language
 
   def wikipedia_site
-    "https://#{ language.code }.wikipedia.org"
+    "https://#{ I18n.locale }.wikipedia.org"
   end
 
   def wikipedia_url
-    URI.escape("#{ wikipedia_site }/wiki/#{ name}")
+    URI.escape("#{ wikipedia_site }/wiki/#{ I18n.t(name)}")
   end
 
   def wikipedia_doc
@@ -33,7 +32,7 @@ class Country < ActiveRecord::Base
   end
 
   def googlemaps_url 
-    URI.escape("https://maps.googleapis.com/maps/api/staticmap?center=#{ name }&key=AIzaSyCRckkdFPzcbgqL2-PAhmo6aEDNU8hITQM")
+    URI.escape("https://maps.googleapis.com/maps/api/staticmap?center=#{ I18n.t(name) }&key=AIzaSyCRckkdFPzcbgqL2-PAhmo6aEDNU8hITQM")
   end
 
   def flag
@@ -71,15 +70,6 @@ class Country < ActiveRecord::Base
 
   def weather(woeid)
     Weather.lookup(woeid, Weather::Units::CELSIUS)
-  end
-
-  def self.url_or_text_from_code3(code3)
-    country = Country.find_by_code3(code3.downcase)
-    if country
-      "<a href='#{ Rails.application.routes.url_helpers.language_country_path(country.language, country) }'>#{ code3 }</a>"
-    else
-      code3
-    end
   end
 end
 

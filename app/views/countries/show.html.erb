@@ -1,23 +1,18 @@
-<%
-   info = @country.restcountries_code 
-%>
-
+<% info = @country.restcountries_code %>
 <ol class="breadcrumb">
-  <li><a href="<%= languages_path %>">Home</a></li>
-  <li><a href="<%= language_path(@country.language) %>"><%= @country.language.name %></a></li>
-  <li><a href="<%= language_country_path(@language, @country) %>"><%= @country.name %></a></li>
+  <li><%= link_to t(:home), countries_path %></li>
+  <li><%= link_to t(@country.name), country_path(@country) %></li>
 </ol>
 <div class="jumbotron">
   <div class="row">
     <div class="col-md-8">
-      <h1><%= @country.name %></h1>
+      <h1><%= t(@country.name) %></h1>
     </div>
     <div class="col-md-4">
       <img src="<%= @country.googlemaps_url %>&size=300x200"/>
     </div>
   </div>
 </div>
-
 <div class="row">
   <div class="col-md-4">
     <%= render partial: "facts", locals: {country: @country, info: info} %>
@@ -25,10 +20,9 @@
     <%= render partial: "money", locals: {country: @country, info: info} %>
     <%= render partial: "hour", locals: {country: @country, info: info} %>
   </div>
-
   <div class="col-md-8">
-    <%= render partial: "wikipedia", locals: {country: @country, info: info} %>
     <%= render partial: "geography", locals: {country: @country, info: info} %>
+    <%= render partial: "wikipedia", locals: {country: @country, info: info} %>
   </div>
 </div>
 

@@ -1,0 +1,13 @@
+<ol class="breadcrumb">
+  <li><%= link_to t(:home), countries_path %></li>
+</ol>
+<div class="panel panel-default">
+  <div class="panel-heading"><%= t('.choose_country') %></div>
+  <ul class="list-group">
+    <% @countries.each do |country| %>
+    <li class="list-group-item">
+      <%= link_to t(country.name), [country] %>
+    </li>
+    <% end %>
+  </ul>
+</div>

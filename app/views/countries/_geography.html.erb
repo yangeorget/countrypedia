@@ -1,16 +1,51 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Geography</h3>
+    <h3 class="panel-title"><%= t('countries.show.geography') %></h3>
   </div>
   <div class="panel-body">
     <dl class="dl-horizontal">
-      <dt>Capital</dt><dd><%= info['capital'] %></dd>
-      <dt>Region</dt><dd><%= info['region'] %></dd>
-      <dt>Sub-region</dt><dd><%= info['subregion'] %></dd>
-      <dt>Latitude</dt><dd><%= info['latlng'][0] %></dd>
-      <dt>Longitude</dt><dd><%= info['latlng'][1] %></dd>
-      <dt>Area</dt><dd><%= info['area'] %></dd>
-      <dt>Borders</dt><dd><%= raw(info['borders'].map{ |code3| Country.url_or_text_from_code3(code3) }.join(", ")) %></dd>
+      <dt>
+	<%= t('countries.show.capital') %>
+      </dt>
+      <dd>
+	<%= info['capital'] %>
+      </dd>
+      <dt>
+	<%= t('countries.show.region') %>
+      </dt>
+      <dd>
+	<%= info['region'] %>
+      </dd>
+      <dt>
+	<%= t('countries.show.subregion') %>
+      </dt>
+      <dd>
+	<%= info['subregion'] %>
+      </dd>
+      <dt>
+	<%= t('countries.show.latitude') %>
+      </dt>
+      <dd>
+	<%= info['latlng'][0] %>
+      </dd>
+      <dt>
+	<%= t('countries.show.longitude') %>
+      </dt>
+      <dd>
+	<%= info['latlng'][1] %>
+      </dd>
+      <dt>
+      <%= t('countries.show.area') %>
+      </dt>
+      <dd>
+	<%= info['area'] %>
+      </dd>
+      <dt>
+	<%= t('countries.show.borders') %>
+      </dt>
+      <dd>
+	<%= raw(info['borders'].join(", ")) %>
+      </dd>
     </dl>
     <script type="text/javascript">
       google.load("visualization", "1", {packages:["geochart"]});
@@ -23,4 +58,5 @@
       }
     </script>
     <div id="regions_div" style="width: 400px; height: 300px;"></div>
+  </div>
 </div>
