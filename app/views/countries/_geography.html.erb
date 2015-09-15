@@ -48,15 +48,18 @@
       </dd>
     </dl>
     <script type="text/javascript">
-      google.load("visualization", "1", {packages:["geochart"]});
+      google.load("visualization", "1", { packages:["geomap"] });
       google.setOnLoadCallback(drawRegionsMap);
       function drawRegionsMap() {
       var data = google.visualization.arrayToDataTable(<%= raw(country.geochart_from_borders(info['borders'])) %>);
-      var options = { region: '<%= country.region_code %>'};
-      var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+      var options = {};
+      options['region'] = '<%= country.region_code %>';
+      options['dataMode'] = 'regions';
+      var container = document.getElementById('regions_div');
+      var chart = new google.visualization.GeoChart(container);
       chart.draw(data, options);
       }
     </script>
-    <div id="regions_div" style="width: 400px; height: 300px;"></div>
+    <div id="regions_div" style="width: 800px; height: 600px;"></div>
   </div>
 </div>

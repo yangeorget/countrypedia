@@ -21,8 +21,10 @@
     <%= render partial: "hour", locals: {country: @country, info: info} %>
   </div>
   <div class="col-md-8">
-    <%= render partial: "geography", locals: {country: @country, info: info} %>
     <%= render partial: "wikipedia", locals: {country: @country, info: info} %>
+  </div>
+  <div class="col-md-12">
+    <%= render partial: "geography", locals: {country: @country, info: info} %>
   </div>
 </div>
 

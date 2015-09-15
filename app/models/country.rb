@@ -26,7 +26,7 @@ class Country < ActiveRecord::Base
 
   def wikipedia_info
     html = wikipedia_doc.xpath("//*[@id='mw-content-text']/p").to_s
-    html = HTML_Truncator.truncate(html, 200)
+    html = HTML_Truncator.truncate(html, 500)
     link_sanitizer = Rails::Html::LinkSanitizer.new
     link_sanitizer.sanitize(html)
   end
@@ -57,12 +57,12 @@ class Country < ActiveRecord::Base
   def geochart_from_borders(borders)
     data = [
      ['Country', 'Neighbor'],
-     [code2, 0],
+     [I18n.t(name), 0],
     ]
     borders.each do |code3|
       neighbor = Country.find_by_code3(code3.downcase)
       if neighbor
-        data.push [neighbor.code2, 1]
+        data.push [I18n.t(neighbor.name), 1]
       end
     end
     data
