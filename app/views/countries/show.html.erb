@@ -6,6 +6,8 @@
 <div class="jumbotron">
   <div class="row">
     <div class="col-md-8">
+      <%= render partial: "share", locals: {country: @country, info: info} %>
+
       <h1><%= t(@country.name) %></h1>
       <%
 	 nativeName = info['nativeName']
