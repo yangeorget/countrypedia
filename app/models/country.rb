@@ -15,8 +15,9 @@ class Country < ActiveRecord::Base
 
   def wikipedia_url
     url = URI.escape("#{ wikipedia_site }/wiki/#{ I18n.t(name)}")
-    if (url == "https://fr.wikipedia.org/wiki/Irlande")
-      "https://fr.wikipedia.org/wiki/Irlande_(pays)" # TODO: put in table
+    redirect = WebRedirect.find_by_from(url)
+    if (redirect)
+      redirect.to
     else
       url
     end

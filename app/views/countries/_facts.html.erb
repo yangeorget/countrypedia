@@ -28,6 +28,12 @@
       <dd>
 	<%= info['area'] %>
       </dd>
+       <dt>
+	<%= t('countries.show.calling_codes') %>
+      </dt>
+      <dd>
+	<%= raw(info['callingCodes'].join(", ")) %>
+      </dd>
       <dt>
 	<%= t('countries.show.tld') %>
       </dt>

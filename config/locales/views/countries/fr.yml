@@ -26,3 +26,6 @@ fr:
       temperature: "Température"
       details: "Détails"
       celsiusdegrees: "degrés Celsius"
+      gini: "Coefficient de GINI"
+      gini_wikipedia: "https://fr.wikipedia.org/wiki/Coefficient_de_Gini"
+      calling_codes: "Préfixes d'appel"	

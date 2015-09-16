@@ -7,6 +7,14 @@
   <div class="row">
     <div class="col-md-8">
       <h1><%= t(@country.name) %></h1>
+      <%
+	 nativeName = info['nativeName']
+	 if (nativeName != t(@country.name))
+      %>
+      <h3><em><%= nativeName %></em></h3> 
+      <%
+	 end
+      %>
     </div>
     <div class="col-md-4">
       <img src="<%= @country.googlemaps_url %>&size=300x200"/>
