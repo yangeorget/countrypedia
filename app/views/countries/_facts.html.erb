@@ -8,7 +8,7 @@
 	<%= t('countries.show.flag') %>
       </dt>
       <dd>
-	<%= image_tag country.flag %>
+	<%= image_tag(country.flag, width: '64') %>
       </dd>
       <dt>
 	<%= t('countries.show.languages') %>
@@ -21,6 +21,12 @@
       </dt>
       <dd>
 	<%= info['population'] %>
+      </dd>
+      <dt>
+      <%= t('countries.show.area')  %> (km<sup>2</sup>)
+      </dt>
+      <dd>
+	<%= info['area'] %>
       </dd>
       <dt>
 	<%= t('countries.show.tld') %>

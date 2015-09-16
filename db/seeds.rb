@@ -1,5 +1,5 @@
 Country.create(region_code: "150", woeid: "23424909", code2: "nl", code3: "nld", name: "netherlands")
-Country.create(region_code: "150", woeid: "23424744", code2: "ad", code2: "and", name: "andorra")
+Country.create(region_code: "150", woeid: "23424744", code2: "ad", code3: "and", name: "andorra")
 Country.create(region_code: "150", woeid: "23424833", code2: "gr", code3: "grc", name: "greece")
 Country.create(region_code: "150", woeid: "20069818", code2: "rs", code3: "srb", name: "serbia")
 Country.create(region_code: "150", woeid: "23424829", code2: "de", code3: "deu", name: "germany")

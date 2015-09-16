@@ -14,7 +14,12 @@ class Country < ActiveRecord::Base
   end
 
   def wikipedia_url
-    URI.escape("#{ wikipedia_site }/wiki/#{ I18n.t(name)}")
+    url = URI.escape("#{ wikipedia_site }/wiki/#{ I18n.t(name)}")
+    if (url == "https://fr.wikipedia.org/wiki/Irlande")
+      "https://fr.wikipedia.org/wiki/Irlande_(pays)" # TODO: put in table
+    else
+      url
+    end
   end
 
   def wikipedia_doc
@@ -49,17 +54,19 @@ class Country < ActiveRecord::Base
 
   def restcountries_code
     json = Rails.cache.fetch(restcountries_code_url, :expires_in => 1.day) do
+      logger.debug("fetching #{ restcountries_code_url }")
       HTTParty.get(restcountries_code_url)[0]
     end
     json
   end
 
   def googleimagessearch_url
-    "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&rsz=4&q=#{ I18n.t(name) }+tourism" # TODO: fixme
+    "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&as_filetype=jpg&hl=en&imgsz=large&imgtype=photo&rsz=3&q=#{ name }+travel" 
   end
 
   def googleimagessearch
     json = Rails.cache.fetch(googleimagessearch_url, :expires_in => 1.day) do
+      logger.debug("fetching #{ googleimagessearch_url }")
       HTTParty.get(googleimagessearch_url, {format: :json})['responseData']['results']
     end
     json
@@ -71,6 +78,7 @@ class Country < ActiveRecord::Base
   
   def openexchangerates
     json = Rails.cache.fetch(openexchangerates_url, :expires_in => 1.day) do
+      logger.debug("fetching #{ openexchangerates_url }")
       HTTParty.get(openexchangerates_url)['rates']
     end
     json

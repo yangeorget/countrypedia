@@ -10,45 +10,32 @@
       <dd>
 	<%= info['currencies'].join(", ") %>
       </dd>
-    </dl>
     <% 
        rates = @country.openexchangerates
        eur_rate = rates['EUR']
        gbp_rate = rates['GBP']
        usd_rate = rates['USD'] 
-       info['currencies'].each do |currency|
+       Array(info['currencies']).each do |currency|
          currency_rate = rates[currency]
+         if currency_rate != nil && currency != 'EUR' %>
+      <dt>1 <%= currency %> =</dt>
+      <dd><%= (eur_rate / currency_rate).round(3)  %> EUR</dd>
+    <%  
+         end 
+         if currency_rate != nil && currency != 'GBP' 
     %>
-    <% if currency_rate != nil && currency != 'EUR' %>
-    <dl class="dl-horizontal">
-      <dt>
-	 1 <%= currency %> =
-      </dt>
-      <dd>
-	<%= (eur_rate / currency_rate).round(3)  %> EUR
-      </dd>
+      <dt>1 <%= currency %> =</dt>
+      <dd><%= (gbp_rate / currency_rate).round(3)  %> GBP</dd>
+    <% 
+         end
+         if currency_rate != nil && currency != 'USD' 
+    %>
+      <dt>1 <%= currency %> =</dt>
+      <dd><%= (usd_rate / currency_rate).round(3)  %> USD</dd>
+    <% 
+         end 
+       end 
+    %>
     </dl>
-    <% end %>
-    <% if currency_rate != nil && currency != 'GBP' %>
-    <dl class="dl-horizontal">
-      <dt>
-	 1 <%= currency %> =
-      </dt>
-      <dd>
-	<%= (gbp_rate / currency_rate).round(3)  %> GBP
-      </dd>
-    </dl>
-    <% end %>
-    <% if currency_rate != nil && currency != 'USD' %>
-    <dl class="dl-horizontal">
-      <dt>
-	 1 <%= currency %> =
-      </dt>
-      <dd>
-	<%= (usd_rate / currency_rate).round(3)  %> USD
-      </dd>
-    </dl>
-    <% end %>
-    <% end %>
   </div>
 </div>

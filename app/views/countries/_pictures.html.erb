@@ -1,10 +1,9 @@
 <% 
-   json = @country.googleimagessearch 
-   json.each do |result| 
+   Array(@country.googleimagessearch).each do |result| 
 %>
-<div class="col-md-3">
+<div class="col-md-4">
 <a href="#" class="thumbnail">
-  <img class="img-responsive" src="<%= result['url'] %>">
+  <img class="img-responsive" src="<%= result['unescapedUrl'] %>">
 </a>
 </div>
 <%

@@ -9,7 +9,7 @@
       </dt>
       <dd>
 	<ul class="list-unstyled">
-	  <% info['timezones'].each do |timezone| %>
+	  <% Array(info['timezones']).each do |timezone| %>
 	  <li><%= timezone %></li>
 	  <% end %>
 	</ul>
