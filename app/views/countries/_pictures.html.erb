@@ -1,3 +1,8 @@
+<div class="col-md-8">
+  <a href="#" class="thumbnail">
+    <img class="img-responsive" src="<%= @country.googlemaps_url(maptype: 'hybrid', size: '1000x1000')  %>"/>
+  </a>
+</div>
 <% 
    Array(@country.googleimagessearch).each do |result| 
 %>

@@ -19,7 +19,7 @@
       %>
     </div>
     <div class="col-md-4">
-      <img src="<%= @country.googlemaps_url %>&size=300x200"/>
+      <img src="<%= @country.googlemaps_url(type: 'roadmap', size: '300x200')  %>"/>
     </div>
   </div>
 </div>
@@ -29,6 +29,7 @@
     <%= render partial: "weather", locals: {country: @country, info: info} %>
     <%= render partial: "money", locals: {country: @country, info: info} %>
     <%= render partial: "hour", locals: {country: @country, info: info} %>
+    <%= render partial: "cities", locals: {country: @country, info: info} %>
   </div>
   <div class="col-md-8">
     <%= render partial: "wikipedia", locals: {country: @country, info: info} %>

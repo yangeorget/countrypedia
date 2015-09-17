@@ -37,8 +37,14 @@ class Country < ActiveRecord::Base
     link_sanitizer.sanitize(html)
   end
 
-  def googlemaps_url 
-    URI.escape("https://maps.googleapis.com/maps/api/staticmap?center=#{ I18n.t(name) }&key=AIzaSyCRckkdFPzcbgqL2-PAhmo6aEDNU8hITQM")
+  def googlemaps_url(hash)
+    params = {
+      :center => name,
+      :language => I18n.locale,
+      :key => "AIzaSyCRckkdFPzcbgqL2-PAhmo6aEDNU8hITQM",
+      :format => "jpg"
+    }.merge(hash)
+    URI.escape("https://maps.googleapis.com/maps/api/staticmap?#{ params.to_query }")
   end
 
   def flag
@@ -87,13 +93,13 @@ class Country < ActiveRecord::Base
   
   def geochart_from_borders(borders)
     data = [
-     ['Country', 'Neighbor'],
-     [I18n.t(name), 0],
+     ['Country', 'Color'],
+     [I18n.t(name), 1],
     ]
     borders.each do |code3|
       neighbor = Country.find_by_code3(code3.downcase)
       if neighbor
-        data.push [I18n.t(neighbor.name), 1]
+        data.push [I18n.t(neighbor.name), 0]
       end
     end
     data

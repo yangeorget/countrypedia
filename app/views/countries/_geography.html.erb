@@ -5,12 +5,6 @@
   <div class="panel-body">
     <dl class="dl-horizontal">
       <dt>
-	<%= t('countries.show.capital') %>
-      </dt>
-      <dd>
-	<%= info['capital'] %>
-      </dd>
-      <dt>
 	<%= t('countries.show.subregion') %>
       </dt>
       <dd>
@@ -22,18 +16,6 @@
       <dd>
 	<em><%= info['region'] %></em>
       </dd>
-      <!-- <dt> -->
-      <!-- 	<%= t('countries.show.latitude') %> -->
-      <!-- </dt> -->
-      <!-- <dd> -->
-      <!-- 	<%= info['latlng'][0] %> -->
-      <!-- </dd> -->
-      <!-- <dt> -->
-      <!-- 	<%= t('countries.show.longitude') %> -->
-      <!-- </dt> -->
-      <!-- <dd> -->
-      <!-- 	<%= info['latlng'][1] %> -->
-      <!-- </dd> -->
       <dt>
 	<%= t('countries.show.borders') %>
       </dt>
@@ -42,7 +24,7 @@
       </dd>
     </dl>
     <script type="text/javascript">
-      google.load("visualization", "1", { packages:["geomap"] });
+      google.load("visualization", "1", { packages:["geochart"] });
       google.setOnLoadCallback(drawRegionsMap);
       function drawRegionsMap() {
       var data = google.visualization.arrayToDataTable(<%= raw(country.geochart_from_borders(info['borders'])) %>);
@@ -54,6 +36,6 @@
       chart.draw(data, options);
       }
     </script>
-    <div id="regions_div" style="width: 800px; height: 600px;"></div>
+    <div id="regions_div" style="width: 900px; height: 600px;"></div>
   </div>
 </div>
