@@ -30,9 +30,9 @@ class Country < ActiveRecord::Base
     Nokogiri::HTML(html)
   end
 
-  def wikipedia_info
+  def wikipedia_info(size)
     html = wikipedia_doc.xpath("//*[@id='mw-content-text']/p").to_s
-    html = HTML_Truncator.truncate(html, 500)
+    html = HTML_Truncator.truncate(html, size)
     link_sanitizer = Rails::Html::LinkSanitizer.new
     link_sanitizer.sanitize(html)
   end
