@@ -17,28 +17,21 @@ ActiveRecord::Schema.define(version: 20150916141245) do
   enable_extension "plpgsql"
 
   create_table "countries", force: :cascade do |t|
-    t.string   "name"
-    t.string   "code2"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "code3"
-    t.string   "region_code"
     t.string   "capital"
+    t.string   "code2"
+    t.string   "code3"
+    t.string   "name"
+    t.string   "region_code"
     t.string   "woeid"
   end
 
-  create_table "languages", force: :cascade do |t|
-    t.string   "name"
-    t.string   "code"
+  create_table "web_redirects", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "web_redirects", force: :cascade do |t|
     t.string   "from"
     t.string   "to"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   add_index "web_redirects", ["from"], name: "index_web_redirects_on_from", using: :btree

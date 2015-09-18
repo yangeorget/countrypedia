@@ -4,14 +4,16 @@
   </div>
   <div class="panel-body">
     <dl class="dl-horizontal">
-      <% weather = country.weather %>
+      <% 
+	 condition = country.weather ? country.weather.condition : nil  
+      %>
       <dt>
 	<%= t('countries.show.temperature') %>
       </dt>
       <dd>
-	<%= weather.condition.temp %> <%= t('countries.show.celsiusdegrees') %>
+	<%= condition ? condition.temp : '?' %> <%= t('countries.show.celsiusdegrees') %>
       </dd>
-      <dt><%= t('countries.show.details') %></dt><dd><em><%= weather.condition.text %></em></dd>
+      <dt><%= t('countries.show.details') %></dt><dd><em><%= condition ? condition.text : '?' %></em></dd>
     </dl>
   </div>
 </div>

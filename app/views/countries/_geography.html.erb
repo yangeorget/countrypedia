@@ -23,19 +23,14 @@
 	<%= raw(info['borders'].join(", ")) %>
       </dd>
     </dl>
-    <!-- <script type="text/javascript"> -->
-    <!--   google.load("visualization", "1", { packages:["geochart"] }); -->
-    <!--   google.setOnLoadCallback(drawRegionsMap); -->
-    <!--   function drawRegionsMap() { -->
-    <!--   var data = google.visualization.arrayToDataTable(<%= raw(country.geochart_from_borders(info['borders'])) %>); -->
-    <!--   var options = {}; -->
-    <!--   options['region'] = '<%= country.region_code %>'; -->
-    <!--   options['dataMode'] = 'regions'; -->
-    <!--   var container = document.getElementById('regions_div'); -->
-    <!--   var chart = new google.visualization.GeoChart(container); -->
-    <!--   chart.draw(data, options); -->
-    <!--   } -->
-    <!-- </script> -->
-    <!-- <div id="regions_div" style="width: 900px; height: 600px;"></div> -->
+    <div class="row">
+      <% (2..5).each do |zoom| %>
+      <div class="col-md-6">
+	<a href="#" class="thumbnail">
+	  <img  class="img-responsive" src="<%= @country.googlemaps_url(type: 'roadmap', size: '300x300', zoom: zoom)  %>"/>
+	</a>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>

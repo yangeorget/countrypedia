@@ -106,10 +106,12 @@ class Country < ActiveRecord::Base
   end
 
   def weather
-    json = Rails.cache.fetch(woeid, :expires_in => 1.hour) do
+    weather = Rails.cache.fetch(woeid, :expires_in => 1.hour) do
       Weather.lookup(woeid, Weather::Units::CELSIUS)
     end
-    json
+    weather
+  rescue RuntimeError => e
+    nil
   end
 end
 

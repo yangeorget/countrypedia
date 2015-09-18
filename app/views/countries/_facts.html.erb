@@ -51,10 +51,18 @@
       <dt>
 	<a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">
 	  <%= t('countries.show.alpha3') %>
-      </a>
+	</a>
       </dt>
       <dd>
 	<%= info['alpha3Code'] %>
+      </dd>
+      <dt>
+	<a href="https://en.wikipedia.org/wiki/GeoPlanet">
+	  WOEID
+	</a>
+      </dt>
+      <dd>
+	<%= @country.woeid %>
       </dd>
     </dl>
   </div>

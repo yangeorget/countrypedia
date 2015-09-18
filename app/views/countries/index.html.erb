@@ -3,9 +3,9 @@
 </ol>
 <div class="panel panel-default">
   <div class="panel-heading"><%= t('.choose_country') %></div>
-  <ul class="list-group">
+  <ul class="list-inline">
     <% @countries.each do |country| %>
-    <li class="list-group-item">
+    <li>
       <%= link_to t(country.name), [country] %>
     </li>
     <% end %>
