@@ -91,18 +91,8 @@ class Country < ActiveRecord::Base
     json
   end
   
-  def geochart_from_borders(borders)
-    data = [
-     ['Country', 'Color'],
-     [I18n.t(name), 1],
-    ]
-    borders.each do |code3|
-      neighbor = Country.find_by_code3(code3.downcase)
-      if neighbor
-        data.push [I18n.t(neighbor.name), 0]
-      end
-    end
-    data
+  def borders(codes)
+    codes.map { |code| Country.find_by_code3(code.downcase) }
   end
 
   def weather

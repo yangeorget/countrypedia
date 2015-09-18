@@ -20,7 +20,13 @@
 	<%= t('countries.show.borders') %>
       </dt>
       <dd>
-	<%= raw(info['borders'].join(", ")) %>
+	<ul class="list-inline">
+	  <% @country.borders(info['borders']).each do |country| %>
+	  <li>
+	    <%= link_to t(country.name), [country] %>
+	  </li>
+	  <% end %>
+	</ul>
       </dd>
     </dl>
     <div class="row">
