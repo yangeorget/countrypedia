@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><%= t('countries.index.choose_country') %></div>
+  <div style="padding: 20px">
+    <ul class="list-inline">
+      <% @countries.each do |country| %>
+      <li>
+	<%= link_to t(country.name), [country] %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

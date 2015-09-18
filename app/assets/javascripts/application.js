@@ -14,4 +14,5 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require social-share-button
+//= require raphael
 //= require_tree .

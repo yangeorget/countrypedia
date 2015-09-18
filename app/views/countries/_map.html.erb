@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="mapcontainer" style="width: 98%">
+    <div class="map"></div>
+  </div>
+</div>
+<script>
+  $(function(){
+    $(".mapcontainer").mapael( {
+      map : { name: "world_countries", zoom : { enabled : true } },
+      areas: {
+<% @countries.each do |country| %> 
+        "<%= country.code2.upcase %>": { 
+	  tooltip: { content : "<%= t(country.name)%>" }, 
+          href: "<%= country_path(country) %>" 
+        },
+<% end %>
+      }
+    });
+ });
+</script>
+ 

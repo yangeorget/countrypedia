@@ -125,6 +125,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.15.0)
     rake (10.4.2)
+    raphael-rails (2.1.2)
     rdoc (4.2.0)
     sass (3.4.18)
     sass-rails (5.0.4)
@@ -189,6 +190,7 @@ DEPENDENCIES
   rails (= 4.2.4)
   rails-html-sanitizer
   rails_12factor
+  raphael-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   sitemap_generator
