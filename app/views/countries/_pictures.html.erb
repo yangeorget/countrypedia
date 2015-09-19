@@ -1,14 +1,22 @@
-<div class="row">
-  <div class="col-md-8">
-    <a href="#" class="thumbnail">
-      <img class="img-responsive" src="<%= @country.googlemaps_url(maptype: 'hybrid', size: '1000x1000')  %>"/>
-    </a>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= t('countries.show.pictures') %></h3>
   </div>
-  <div class="col-md-4">
-  <% Array(@country.googleimagessearch).each do |result| %>
-    <a href="#" class="thumbnail">
-      <img class="img-responsive" src="<%= result['unescapedUrl'] %>">
-    </a>
-  <% end %>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-8">
+	<div style="padding:10px">
+	  <img class="img-responsive" src="<%= @country.googlemaps_url(maptype: 'hybrid', size: '1000x1000')  %>"/>
+	</div>
+      </div>
+      <div class="col-md-4">
+	<% Array(@country.googleimagessearch).each do |result| %>
+	<div style="padding:10px">
+	  <img class="img-responsive" src="<%= result['unescapedUrl'] %>">
+	  </div>
+	<% end %>
+      </div>
+    </div>
   </div>
 </div>
+

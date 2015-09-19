@@ -23,6 +23,7 @@ en:
       latitude: "Latitude"
       longitude: "Longitude"
       money: "Money"
+      pictures: "Pictures"
       population: "Population"
       region: "Region"
       subregion: "Sub-region"

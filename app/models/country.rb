@@ -64,6 +64,7 @@ class Country < ActiveRecord::Base
       logger.debug("fetching #{ restcountries_code_url }")
       HTTParty.get(restcountries_code_url)[0]
     end
+    logger.debug("#{ restcountries_code_url } returns #{ json.to_s }")
     json
   end
 
@@ -92,6 +93,7 @@ class Country < ActiveRecord::Base
   end
   
   def borders(codes)
+    logger.debug(codes.to_s)
     codes.map { |code| Country.find_by_code3(code.downcase) }
   end
 
