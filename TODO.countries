@@ -1,8 +1,3 @@
-Country.create(woeid: '23424742', code2: 'al', code3: 'alb', name: 'albania')
-Country.create(woeid: '23424740', code2: 'dz', code3: 'dza', name: 'algeria')
-Country.create(woeid: '23424746', code2: 'as', code3: 'asm', name: 'americansamoa')
-Country.create(woeid: '23424744', code2: 'ad', code3: 'and', name: 'andorra')
-Country.create(woeid: '23424745', code2: 'ao', code3: 'ago', name: 'angola')
 Country.create(woeid: '23424751', code2: 'ai', code3: 'aia', name: 'anguilla')
 Country.create(woeid: '23424737', code2: 'ag', code3: 'atg', name: 'antiguaandbarbuda')
 Country.create(woeid: '23424747', code2: 'ar', code3: 'arg', name: 'argentina')
