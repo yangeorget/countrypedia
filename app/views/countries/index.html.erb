@@ -1,7 +1,7 @@
 <% content_for :head do %>
     <title>Countrypedia</title>
-    <meta name="keywords" content="<%= t('countries.index.keywords', country: t(@country.name)) %>">
-    <meta name="description" content="<%= t('countries.index.description', country: t(@country.name)) %>">
+    <meta name="keywords" content="<%= t('countries.index.keywords') %>">
+    <meta name="description" content="<%= t('countries.index.description') %>">
 <% end %>
 <ol class="breadcrumb">
   <li><%= link_to t(:home), countries_path %></li>
