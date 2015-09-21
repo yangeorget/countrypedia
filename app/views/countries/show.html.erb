@@ -11,8 +11,7 @@
 <div class="jumbotron">
   <div class="row">
     <div class="col-md-8">
-      <%= render partial: "share", locals: {country: @country, info: info} %>
-      
+      <%= render partial: "share", locals: {text: t(@country.name)} %>
       <h1><%= t(@country.name) %></h1>
       <%
 	 nativeName = info['nativeName']
@@ -29,6 +28,9 @@
   </div>
 </div>
 <div class="row">
+  <div class="col-md-12">
+    <%= render partial: "shared/googleadsense", locals: {} %>
+  </div>
   <div class="col-md-4">
     <%= render partial: "facts", locals: {country: @country, info: info} %>
     <%= render partial: "weather", locals: {country: @country, info: info} %>

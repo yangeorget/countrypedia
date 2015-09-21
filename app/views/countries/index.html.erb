@@ -7,7 +7,15 @@
   <li><%= link_to t(:home), countries_path %></li>
 </ol>
 
+<div class="jumbotron">
+  <%= render partial: "share", locals: {text: "Countrypedia"} %>
+  <h1><%= Countrypedia %></h1>
+</div>
+
 <div class="row">
+  <div class="col-md-12">
+    <%= render partial: "shared/googleadsense", locals: {} %>
+  </div>
   <div class="col-md-12">
     <%= render partial: "list", locals: {} %>
   </div>
