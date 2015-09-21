@@ -2,11 +2,11 @@ fr:
   countries:
     index:
       keywords: "countrypedia, voyage, guide de voyage, pays, monde"
-      description: "Countrypedia est votre aide de voyage. Il aggrege differentes sources d'information pour vous aider a mieux connaitre votre prochaine destination. Countrypedia a des informations recentes sur chaque pays du monde et est disponible dans plusieurs langues."
+      description: "Countrypedia est votre aide de voyage. Il aggrège différentes sources d'information pour vous aider à mieux connaitre votre prochaine destination. Countrypedia a des informations récentes sur chaque pays du monde et est disponible dans plusieurs langues."
       choose_country: "Merci de choisir parmi les pays suivants"	
     show:
       keywords: "countrypedia, voyage, guide de voyage, decouvrir, %{country}"
-      description: "Countrypedia est votre aide de voyage pour %{country}. Il aggrege differentes sources d'information pour vous aider a mieux connaitre %{country}. Countrypedia a des informations recentes sur %{country} et est disponible dans plusieurs langues."
+      description: "Countrypedia est votre aide de voyage pour %{country}. Il aggrège différentes sources d'information pour vous aider à mieux connaitre %{country}. Countrypedia a des informations récentes sur %{country} et est disponible dans plusieurs langues."
       alpha2: "Code alpha2"
       alpha3: "Code alpha3"
       area: "Surface"
