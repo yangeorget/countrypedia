@@ -1,8 +1,12 @@
 en:	
   countries:
     index:
+      keywords: "countrypedia, travel, travel guide, countries, world"
+      description: "Countrypedia is your travel one-stop-shop. It aggregates various sources of information to help you learn about your next destination. Countrypedia has fresh information about every country on earth and is available in several languages."
       choose_country: "Please choose among the following countries"	
     show:
+      keywords: "countrypedia, travel, travel guide, discover, %{country}"
+      description: "Countrypedia is your travel one-stop-shop for %{country}. It aggregates various sources of information to help you learn about %{country}. Countrypedia has fresh information about %{country} and is available in several languages."
       alpha2: "Alpha2 Code"
       alpha3: "Alpha3 Code"
       area: "Area"

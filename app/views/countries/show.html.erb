@@ -1,3 +1,8 @@
+<% content_for :head do %>
+    <title>Countrypedia / <%= t(@country.name) %></title>
+    <meta name="keywords" content="<%= t('countries.show.keywords', country: t(@country.name)) %>">
+    <meta name="description" content="<%= t('countries.show.description', country: t(@country.name)) %>">
+<% end %>
 <% info = @country.restcountries_code %>
 <ol class="breadcrumb">
   <li><%= link_to t(:home), countries_path %></li>
@@ -17,7 +22,9 @@
       <% end %>
     </div>
     <div class="col-md-4">
-      <img src="<%= @country.googlemaps_url(type: 'roadmap', size: '300x200')  %>"/>
+      <img 
+	 alt="<%= t(@country.name) %>"
+	 src="<%= @country.googlemaps_url(type: 'roadmap', size: '300x200')  %>"/>
     </div>
   </div>
 </div>

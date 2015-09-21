@@ -8,7 +8,7 @@
 	<%= t('countries.show.flag') %>
       </dt>
       <dd>
-	<%= image_tag(country.flag, width: '64') %>
+	<%= image_tag(country.flag, width: '64', alt: t(@country.name)) %>
       </dd>
       <dt>
 	<%= t('countries.show.languages') %>
