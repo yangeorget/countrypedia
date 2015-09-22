@@ -14,13 +14,12 @@ class Country < ActiveRecord::Base
   end
 
   def wikipedia_url
-    url = URI.escape("#{ wikipedia_site }/wiki/#{ I18n.t(name)}")
+    url = "#{ wikipedia_site }/wiki/#{ I18n.t(name)}"
     redirect = WebRedirect.find_by_from(url)
     if (redirect)
-      redirect.to
-    else
-      url
+      url = redirect.to
     end
+    URI.escape(url)
   end
 
   def wikipedia_doc
@@ -39,7 +38,7 @@ class Country < ActiveRecord::Base
 
   def googlemaps_url(hash)
     params = {
-      :center => name,
+      :center => "#{ name } country",
       :language => I18n.locale,
       :key => "AIzaSyCRckkdFPzcbgqL2-PAhmo6aEDNU8hITQM",
       :format => "jpg"
@@ -93,8 +92,13 @@ class Country < ActiveRecord::Base
   end
   
   def borders(codes)
-    logger.debug(codes.to_s)
-    codes.map { |code| Country.find_by_code3(code.downcase) }
+    countries = []
+    codes.each do |code| 
+      country = Country.find_by_code3(code.downcase) 
+      countries.append(country)
+      logger.debug("#{ code } #{ country }")
+    end
+    countries
   end
 
   def weather
