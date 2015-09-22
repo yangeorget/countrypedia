@@ -1,0 +1,9 @@
+fr:	
+  pages:
+    about:
+      title: "A propos"
+      data_title: "A propos de nos données"
+      data_text: "Les données affichées dans Countrypedia sont rafraîchies très fréquemment et proviennnent de:"
+      contact_title: "Contactez nous"
+      contact_why: "Contactez nous pour remonter des bugs: pour soumettre de nouvelles fonctionnalités, pour nous proposer des partenariats."
+      contact_email: "Vous pouvez nous joindre à:"

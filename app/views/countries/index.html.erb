@@ -1,15 +1,15 @@
 <% content_for :head do %>
     <title>Countrypedia</title>
-    <meta name="keywords" content="<%= t('countries.index.keywords') %>">
-    <meta name="description" content="<%= t('countries.index.description') %>">
+    <meta name="keywords" content="<%= t(:keywords) %>">
+    <meta name="description" content="<%= t(:description) %>">
 <% end %>
 <ol class="breadcrumb">
-  <li><%= link_to t(:home), countries_path %></li>
+  <li><%= link_to t(:home), root_path %></li>
 </ol>
 
 <div class="jumbotron">
-  <%= render partial: "share", locals: {text: "Countrypedia"} %>
-  <h1><%= Countrypedia %></h1>
+  <%= render partial: "shared/share", locals: {text: "Countrypedia"} %>
+  <h1>Countrypedia</h1>
 </div>
 
 <div class="row">

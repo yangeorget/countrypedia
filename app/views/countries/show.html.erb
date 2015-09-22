@@ -5,13 +5,13 @@
 <% end %>
 <% info = @country.restcountries_code %>
 <ol class="breadcrumb">
-  <li><%= link_to t(:home), countries_path %></li>
+  <li><%= link_to t(:home), root_path %></li>
   <li><%= link_to t(@country.name), country_path(@country) %></li>
 </ol>
 <div class="jumbotron">
   <div class="row">
     <div class="col-md-8">
-      <%= render partial: "share", locals: {text: t(@country.name)} %>
+      <%= render partial: "shared/share", locals: {text: t(@country.name)} %>
       <h1><%= t(@country.name) %></h1>
       <%
 	 nativeName = info['nativeName']

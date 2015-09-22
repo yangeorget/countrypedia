@@ -1,8 +1,6 @@
 en:	
   countries:
     index:
-      keywords: "countrypedia, travel, travel guide, countries, world"
-      description: "Countrypedia is your travel one-stop-shop. It aggregates various sources of information to help you learn about your next travel destination. Countrypedia has fresh information about every country on earth and is available in several languages."
       choose_country: "Choose among the following countries"	
       random_title: "Random picker"	
       random_text: "Click here and let Countrypedia pick a country for you!"	

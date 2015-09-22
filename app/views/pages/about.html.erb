@@ -1,0 +1,49 @@
+<% content_for :head do %>
+    <title>Countrypedia</title>
+    <meta name="keywords" content="<%= t(:keywords) %>">
+    <meta name="description" content="<%= t(:description) %>">
+<% end %>
+<ol class="breadcrumb">
+  <li><%= link_to t(:home), root_path %></li>
+  <li><%= link_to t(:about), "/pages/about" %></li>
+</ol>
+<div class="jumbotron">
+  <%= render partial: "shared/share", locals: {text: "Countrypedia"} %>
+  <h1><%= t('pages.about.title') %></h1>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= t('pages.about.data_title') %></h3>
+  </div>
+  <div class="panel-body">
+    <p>
+      <%= t('pages.about.data_text') %>
+    </p>
+    <ul>
+      <li><%= link_to "Wikipedia", "https://www.wikipedia.org" %></li>
+      <li><%= link_to "Google Maps", "https://maps.google.com" %></li>
+      <li><%= link_to "restcountries.eu", "https://restcountries.eu" %></li>
+      <li><%= link_to "openexchangerates.org", "https://openexchangerates.org" %></li>
+      <li><%= link_to "Yahoo Weather", "https://weather.yahoo.com/" %></li>
+    </ul>
+
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= t('pages.about.contact_title') %></h3>
+  </div>
+  <div class="panel-body">
+    <p>
+      <%= t('pages.about.contact_why') %>
+    </p>
+    <p>
+      <%= t('pages.about.contact_email') %>
+      <%= link_to "info@countrypedia.xyz", "mailto:info@countrypedia.xfz" %>
+    </p>
+  </div>
+</div>
+
+

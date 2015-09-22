@@ -1,0 +1,9 @@
+en:	
+  pages:
+    about:
+      title: "About"
+      data_title: "About our data"
+      data_text: "The data displayed in Countrypedia is updated very frequently and comes from the following sources:"
+      contact_title: "Contact us!"
+      contact_why: "Feel free to contact us for: reporting bugs, submit new feature requests, propose a partnership."
+      contact_email: "You can reach us at:"
