@@ -8,6 +8,6 @@ class CountriesController < ApplicationController
   end
 
   def index
-    @countries = Country.all
+    @countries = Country.all.sort { |a,b| I18n.translate(a.name, I18n.locale) <=> I18n.translate(b.name, I18n.locale) }
   end
 end
