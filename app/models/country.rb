@@ -64,6 +64,25 @@ class Country < ActiveRecord::Base
       HTTParty.get(restcountries_code_url)[0]
     end
     logger.debug("#{ restcountries_code_url } returns #{ json.to_s }")
+    if json == nil 
+      json = { 
+        'alpha2Code' => nil,
+        'alpha3Code' => nil,
+        'area' => nil,
+        'borders' => [],
+        'callingCodes' => [],
+        'capital' => nil,
+        'currencies' => [],
+        'demonym' => nil,
+        'gini' => nil,
+        'languages' => [],
+        'latlng' => [nil, nil],
+        'population' => nil,
+        'region' => nil,
+        'subregion' => nil,
+        'topLevelDomain' => [nil]
+      }
+    end
     json
   end
 
