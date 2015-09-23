@@ -26,7 +26,6 @@ class Country < ActiveRecord::Base
   end
 
   def wikipedia_summary(page)
-    # doc = Nokogiri::HTML(page).xpath("//*[@id='mw-content-text']/p[1]")
     wikipedia_paragraphs(page, "//p[parent::div[1][@id='mw-content-text']]")
   end
 
@@ -35,9 +34,14 @@ class Country < ActiveRecord::Base
   end
 
   def wikipedia_paragraphs(page, xpath)
+    #logger.debug("xpath=#{ xpath }")
+    nodes = Nokogiri::HTML(page).xpath(xpath).first(3) 
+    #logger.debug(nodes.to_s)
     paragraphs = []
-    Nokogiri::HTML(page).xpath(xpath).first(4).each do |paragraph|
-      paragraphs.append(Rails::Html::FullSanitizer.new.sanitize(paragraph.to_s))
+    nodes.each do |node|
+      if node
+        paragraphs.append(Rails::Html::FullSanitizer.new.sanitize(node.to_s))
+      end
     end
     paragraphs
   end

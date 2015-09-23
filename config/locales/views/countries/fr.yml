@@ -32,14 +32,13 @@ fr:
       population: "Population"
       region: "Région"
       subregion: "Sous-région"
-      temperature: "Température"
+      temperature: "Temapérture"
       timezones: "Zones horaires"
       tld: "Top Level Domain"
       weather: "Météo"
-      wikipedia_summary_title: 'En bref'  
-      wikipedia_history_id: 'Histoire' 
-      wikipedia_history_title: 'Histoire' 
-      wikipedia_geography_id: 'Géographie' 
-      wikipedia_geography_title: 'Géographie' 
-      wikipedia_culture_id: 'Culture'		
-      wikipedia_culture_title: 'Culture'	
+      wikipedia_link: 'Plus de détails sur'
+      wikipedia_summary: 'En bref'  
+      wikipedia_history: 'Histoire' 
+      wikipedia_geography: 'Géographie' 
+      wikipedia_culture: 'Culture'		
+      wikipedia_politics: 'Politique'	

@@ -6,33 +6,11 @@
     <h3 class="panel-title"><a href="<%= country.wikipedia_url %>">Wikipedia</a></h3>
   </div>
   <div class="panel-body">
-    <h2><%= t('countries.show.wikipedia_summary_title') %></h2>
-    <% country.wikipedia_summary(doc).each do |paragraph| %>
-    <p>
-      <%= raw(paragraph) %>
-    </p>
-    <% end %>
-
-    <h2><%= t('countries.show.wikipedia_history_title') %></h2>
-    <% country.wikipedia_block(doc, t('countries.show.wikipedia_history_id')).each do |paragraph| %>
-    <p>
-      <%= raw(paragraph) %>
-    </p>
-    <% end %>
-
-    <h2><%= t('countries.show.wikipedia_geography_title') %></h2>
-    <% country.wikipedia_block(doc, t('countries.show.wikipedia_geography_id')).each do |paragraph| %>
-    <p>
-      <%= raw(paragraph) %>
-    </p>
-    <% end %>
-
-<h2><%= t('countries.show.wikipedia_culture_title') %></h2>
-    <% country.wikipedia_block(doc, t('countries.show.wikipedia_culture_id')).each do |paragraph| %>
-    <p>
-      <%= raw(paragraph) %>
-    </p>
-    <% end %>
+    <%= render partial: "wikipedia_section", locals: {doc: doc, key: 'summary' } %>
+    <%= render partial: "wikipedia_section", locals: {doc: doc, key: 'history' } %>
+    <%= render partial: "wikipedia_section", locals: {doc: doc, key: 'geography' } %>
+    <%= render partial: "wikipedia_section", locals: {doc: doc, key: 'culture' } %>
+    <%= render partial: "wikipedia_section", locals: {doc: doc, key: 'politics' } %>
   </div>
 </div>
 

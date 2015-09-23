@@ -1,0 +1,15 @@
+<% section = "countries.show.wikipedia_#{ key }" %>
+<% paragraphs = key == 'summary' ? @country.wikipedia_summary(doc) : @country.wikipedia_block(doc, t(section)) %>
+<% if !paragraphs.empty? %>
+  <h2>
+    <%= t(section) %>
+  </h2>
+  <% paragraphs.each do |paragraph| %>
+    <p>
+      <%= raw(paragraph) %>
+    </p>
+  <% end %>
+  <p>
+    <%= t('countries.show.wikipedia_link') %> <a href="<%= @country.wikipedia_url %>">Wikipedia</a>.
+  </p>
+<% end %>

@@ -36,10 +36,9 @@ en:
       timezones: "Timezones"
       tld: "Top Level Domain"
       weather: "Weather"
-      wikipedia_summary_title: 'In brief'  
-      wikipedia_history_id: 'History' 
-      wikipedia_history_title: 'History' 
-      wikipedia_geography_id: 'Geography' 
-      wikipedia_geography_title: 'Geography' 
-      wikipedia_culture_id: 'Culture'		
-      wikipedia_culture_title: 'Culture'	
+      wikipedia_link: 'More details on'
+      wikipedia_summary: 'In brief'  
+      wikipedia_history: 'History' 
+      wikipedia_geography: 'Geography' 
+      wikipedia_culture: 'Culture'	
+      wikipedia_politics: 'Politics'	
