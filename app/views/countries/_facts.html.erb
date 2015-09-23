@@ -1,6 +1,8 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"><%= t('countries.show.facts') %></h3>
+    <h2 class="panel-title">
+      <%= content_tag(:a, t('countries.show.facts'), :name => 'facts') %>
+    </h2>
   </div>
   <div class="panel-body">
     <dl class="dl-horizontal">
@@ -29,25 +31,19 @@
 	<%= info['topLevelDomain'][0] %>
       </dd>
       <dt>
-	<a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">
-	  <%= t('countries.show.alpha2') %>
-	</a>
+	<%= link_to t('countries.show.alpha3'), "https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" %>
       </dt>
       <dd>
 	<%= info['alpha2Code'] %>
       </dd>
       <dt>
-	<a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">
-	  <%= t('countries.show.alpha3') %>
-	</a>
+	<%= link_to t('countries.show.alpha3'), "https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3" %>
       </dt>
       <dd>
 	<%= info['alpha3Code'] %>
       </dd>
       <dt>
-	<a href="https://en.wikipedia.org/wiki/GeoPlanet">
-	  WOEID
-	</a>
+	<%= link_to 'WOEID', "https://en.wikipedia.org/wiki/GeoPlanet" %> 
       </dt>
       <dd>
 	<%= @country.woeid %>

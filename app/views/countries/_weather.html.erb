@@ -1,6 +1,8 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"><%= t('countries.show.weather') %></h3>
+    <h2 class="panel-title">
+      <%= content_tag(:a, t('countries.show.weather'), :name => 'weather') %>
+    </h2>
   </div>
   <div class="panel-body">
     <dl class="dl-horizontal">
