@@ -36,3 +36,10 @@ fr:
       timezones: "Zones horaires"
       tld: "Top Level Domain"
       weather: "Météo"
+      wikipedia_summary_title: 'En bref'  
+      wikipedia_history_id: 'Histoire' 
+      wikipedia_history_title: 'Histoire' 
+      wikipedia_geography_id: 'Géographie' 
+      wikipedia_geography_title: 'Géographie' 
+      wikipedia_culture_id: 'Culture'		
+      wikipedia_culture_title: 'Culture'	

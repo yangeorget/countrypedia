@@ -9,12 +9,8 @@ class Country < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name
 
-  def wikipedia_site
-    "https://#{ I18n.locale }.wikipedia.org"
-  end
-
   def wikipedia_url
-    url = "#{ wikipedia_site }/wiki/#{ I18n.t(name)}"
+    url = "https://#{ I18n.locale }.wikipedia.org/wiki/#{ I18n.t(name)}"
     redirect = WebRedirect.find_by_from(url)
     if (redirect)
       url = redirect.to
@@ -22,18 +18,28 @@ class Country < ActiveRecord::Base
     URI.escape(url)
   end
 
-  def wikipedia_doc
+  def wikipedia_page
     html = Rails.cache.fetch(wikipedia_url, :expires_in => 1.day) do
       open(wikipedia_url).read
     end
-    Nokogiri::HTML(html)
+    html
   end
 
-  def wikipedia_info(size)
-    html = wikipedia_doc.xpath("//*[@id='mw-content-text']/p").to_s
-    html = HTML_Truncator.truncate(html, size)
-    link_sanitizer = Rails::Html::LinkSanitizer.new
-    link_sanitizer.sanitize(html)
+  def wikipedia_summary(page)
+    # doc = Nokogiri::HTML(page).xpath("//*[@id='mw-content-text']/p[1]")
+    wikipedia_paragraphs(page, "//p[parent::div[1][@id='mw-content-text']]")
+  end
+
+  def wikipedia_block(page, id)
+    wikipedia_paragraphs(page, "//p[preceding-sibling::h2[1][span='#{ id }']]")
+  end
+
+  def wikipedia_paragraphs(page, xpath)
+    paragraphs = []
+    Nokogiri::HTML(page).xpath(xpath).first(4).each do |paragraph|
+      paragraphs.append(Rails::Html::FullSanitizer.new.sanitize(paragraph.to_s))
+    end
+    paragraphs
   end
 
   def googlemaps_url(hash)
@@ -50,12 +56,8 @@ class Country < ActiveRecord::Base
     "#{ code2.downcase }.png"
   end
   
-  def restcountries_url 
-    "https://restcountries.eu/rest/v1"
-  end
-
   def restcountries_code_url
-    "#{ restcountries_url}/alpha?codes=#{ code2 }"
+    "https://restcountries.eu/rest/v1/alpha?codes=#{ code2 }"
   end
 
   def restcountries_code
@@ -115,7 +117,6 @@ class Country < ActiveRecord::Base
     codes.each do |code| 
       country = Country.find_by_code3(code.downcase) 
       countries.append(country)
-      logger.debug("#{ code } #{ country }")
     end
     countries
   end
