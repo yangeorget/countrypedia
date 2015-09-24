@@ -1,10 +1,12 @@
-<footer class="footer">
-  <div class="container">
-    <ul class="text-muted text-center list-inline">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
       <li><%= link_to "info@countrypedia.xyz", "mailto:info@countrypedia.xyz" %></li>
-      <li><%= link_to "en.countrypedia.xyz", "http://en.countrypedia.xyz" %></li>
-      <li><%= link_to "fr.countrypedia.xyz", "http://fr.countrypedia.xyz" %></li>
       <li><%= link_to t('about'), "/pages/about" %></li>
     </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "en.countrypedia.xyz", "http://en.countrypedia.xyz" %></li>
+      <li><%= link_to "fr.countrypedia.xyz", "http://fr.countrypedia.xyz" %></li>
+    </ul>
   </div>
-</footer>
+</nav>

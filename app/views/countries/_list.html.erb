@@ -3,7 +3,7 @@
   <div style="padding: 20px">
     <ul class="list-inline">
       <% @countries.each do |country| %>
-      <li style="margin-right: 5px; font-size:110%">
+      <li>
 	<%= link_to t(country.name), [country] %>
       </li>
       <% end %>
