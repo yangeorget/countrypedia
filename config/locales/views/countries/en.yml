@@ -5,8 +5,8 @@ en:
       random_title: "Random picker"	
       random_text: "Click here and let Countrypedia pick a country for you!"	
     show:
-      keywords: "countrypedia, travel, travel guide, discover, %{country}"
-      description: "Countrypedia is your travel one-stop-shop for %{country}. It aggregates various sources of information to help you learn about %{country}. Countrypedia has fresh information about %{country} and is available in several languages."
+      keywords: "countrypedia, travel, travel guide, trip, discover %{country}, %{country}, information"
+      description: "Countrypedia is your travel one-stop shop for %{country}. It aggregates various sources of information, updated in real time, and is available in several languages. Countrypedia also works on your mobile phone."
       alpha2: "Alpha2 Code"
       alpha3: "Alpha3 Code"
       area: "Area"

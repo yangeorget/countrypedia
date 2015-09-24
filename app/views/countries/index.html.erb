@@ -3,13 +3,11 @@
     <meta name="keywords" content="<%= t(:keywords) %>">
     <meta name="description" content="<%= t(:description) %>">
 <% end %>
-<ol class="breadcrumb">
-  <li><%= link_to t(:home), root_path %></li>
-</ol>
-
+<%= render partial: "shared/nav" %>
 <div class="jumbotron">
   <%= render partial: "shared/share", locals: {text: "Countrypedia"} %>
   <h1>Countrypedia</h1>
+  <p><%= t(:description) %></p>
 </div>
 
 <div class="row">

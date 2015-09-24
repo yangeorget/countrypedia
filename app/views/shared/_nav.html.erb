@@ -1,0 +1,17 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><%= link_to(t(:world), root_path) %></li>
+      <li><%= link_to t('countries.index.random_title'), countries_random_path %></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <% if I18n.locale == :en %>
+      <li class="active"><%= link_to('en', request.original_url) %></li>
+      <li><%= link_to('fr', request.original_url.sub!("en.", "fr.")) %></li>
+      <% else %>
+      <li><%= link_to('en', request.original_url.sub!("fr.", "en.")) %></li>
+      <li class="active"><%= link_to('fr', request.original_url) %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

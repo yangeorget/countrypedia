@@ -1,8 +1,8 @@
 fr:
-  home: "Home"
+  world: "Monde"
   about: "à propos"
-  keywords: "countrypedia, voyage, guide de voyage, pays, monde"
-  description: "Countrypedia est votre aide de voyage. Il aggrège différentes sources d'information pour vous aider à mieux connaitre votre prochaine destination. Countrypedia a des informations récentes sur chaque pays du monde et est disponible dans plusieurs langues."
+  keywords: "countrypedia, voyage, guide de voyage, pays, monde, information"
+  description: "Countrypedia est votre point de départ pour préparer votre prochain voyage, il a des données sur tous les pays du monde. Il va vous permettre d'appendre des informations intéressantes et utiles sur votre prochaine destination. Il aggrège différentes sources de données, mises à jour en temps réel, et est disponible dans plusieurs langues. Countrypedia fonctionne aussi sur votre mobile."
 
   afghanistan: "Afghanistan"
   albania: "Albanie"

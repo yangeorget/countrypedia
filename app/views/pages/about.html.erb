@@ -3,10 +3,7 @@
     <meta name="keywords" content="<%= t(:keywords) %>">
     <meta name="description" content="<%= t(:description) %>">
 <% end %>
-<ol class="breadcrumb">
-  <li><%= link_to t(:home), root_path %></li>
-  <li><%= link_to t(:about), "/pages/about" %></li>
-</ol>
+<%= render partial: "shared/nav" %>
 <div class="jumbotron">
   <%= render partial: "shared/share", locals: {text: "Countrypedia"} %>
   <h1><%= t('pages.about.title') %></h1>
