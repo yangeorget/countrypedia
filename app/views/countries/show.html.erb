@@ -5,6 +5,7 @@
 <% end %>
 <% info = @country.restcountries_code %>
 <%= render partial: "shared/nav" %>
+
 <div class="jumbotron">
   <div class="row">
     <div class="col-md-8">
@@ -37,6 +38,7 @@
     <%= render partial: "hour", locals: {country: @country, info: info} %>
     <%= render partial: "population", locals: {country: @country, info: info} %>
     <%= render partial: "cities", locals: {country: @country, info: info} %>
+    <%= render partial: "travisa", locals: {country: @country, info: info} %>
   </div>
   <div class="col-md-8">
     <%= render partial: "geography", locals: {country: @country, info: info} %>
