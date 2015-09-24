@@ -6,7 +6,7 @@ fr:
       random_text: "Cliquez ici et laissez Countrypedia choisir un pays pour vous!"	
     show:
       keywords: "countrypedia, voyage, guide de voyage, decouvrir %{country}, %{country}, information"
-      description: "%{country}: faites confiance à Countrypedia pour préparer votre voyage! Il aggrège différentes sources d'information, mises à jour en temps réel, et est disponible dans plusieurs langues. Countrypedia fonctionne aussi sur votre mobile."
+      description: "Faites confiance à Countrypedia pour préparer votre voyage en/au: %{country}. Countrypedia aggrège différentes sources d'information, mises à jour en temps réel, et est disponible dans plusieurs langues."
       alpha2: "Code alpha2"
       alpha3: "Code alpha3"
       area: "Surface"
