@@ -5,9 +5,18 @@
 <% end %>
 <%= render partial: "shared/nav" %>
 <div class="jumbotron">
-  <%= render partial: "shared/share", locals: {text: "Countrypedia"} %>
-  <h1>Countrypedia</h1>
-  <p><%= t(:description) %></p>
+  <div class="col-md-8">
+    <%= render partial: "shared/share", locals: {text: "Countrypedia"} %>
+    <h1>Countrypedia</h1>
+    <p><%= t(:description) %></p>
+  </div>
+  <div>
+    <img
+       class="img-responsive"
+       style="max-width: 300px;"
+       alt="Countrypedia"
+       src="/assets/countrypedia.svg"/>
+  </div>
 </div>
 
 <div class="row">
