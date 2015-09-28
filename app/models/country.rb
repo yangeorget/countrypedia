@@ -18,11 +18,9 @@ class Country < ActiveRecord::Base
   end
 
   def geonames_largestcities_page
-    html = Rails.cache.fetch(geonames_largestcities_url, :expires_in => 1.day) do
-      logger.debug("fetching #{ geonames_largestcities_url }")
+    Rails.cache.fetch(geonames_largestcities_url, :expires_in => 1.day) do
       open(geonames_largestcities_url).read
     end
-    html
   end
 
   def geonames_largestcities
@@ -39,10 +37,9 @@ class Country < ActiveRecord::Base
   end
 
   def wikipedia_page
-    html = Rails.cache.fetch(wikipedia_url, :expires_in => 1.day) do
+    Rails.cache.fetch(wikipedia_url, :expires_in => 1.day) do
       open(wikipedia_url).read
     end
-    html
   end
 
   def wikipedia_summary(page)
@@ -86,7 +83,6 @@ class Country < ActiveRecord::Base
 
   def restcountries_code
     json = Rails.cache.fetch(restcountries_code_url, :expires_in => 1.day) do
-      logger.debug("fetching #{ restcountries_code_url }")
       HTTParty.get(restcountries_code_url)[0]
     end
     logger.debug("#{ restcountries_code_url } returns #{ json.to_s }")
@@ -117,11 +113,9 @@ class Country < ActiveRecord::Base
   end
 
   def googleimagessearch
-    json = Rails.cache.fetch(googleimagessearch_url, :expires_in => 1.day) do
-      logger.debug("fetching #{ googleimagessearch_url }")
+    Rails.cache.fetch(googleimagessearch_url, :expires_in => 1.day) do
       HTTParty.get(googleimagessearch_url, {format: :json})['responseData']['results']
     end
-    json
   end   
 
   def openexchangerates_url
@@ -129,11 +123,9 @@ class Country < ActiveRecord::Base
   end
   
   def openexchangerates
-    json = Rails.cache.fetch(openexchangerates_url, :expires_in => 1.day) do
-      logger.debug("fetching #{ openexchangerates_url }")
+    Rails.cache.fetch(openexchangerates_url, :expires_in => 1.day) do
       HTTParty.get(openexchangerates_url)['rates']
     end
-    json
   end
   
   def borders(codes)
@@ -146,10 +138,9 @@ class Country < ActiveRecord::Base
   end
 
   def weather
-    weather = Rails.cache.fetch(woeid, :expires_in => 1.hour) do
+    Rails.cache.fetch(woeid, :expires_in => 1.hour) do
       Weather.lookup(woeid, Weather::Units::CELSIUS)
     end
-    weather
   rescue RuntimeError => e
     nil
   end

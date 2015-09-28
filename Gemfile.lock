@@ -55,6 +55,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    dalli (2.7.4)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.6.0)
@@ -82,6 +83,7 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     map (6.5.5)
+    memcachier (0.0.2)
     mime-types (2.6.1)
     mini_portile (0.6.2)
     minitest (5.8.0)
@@ -180,11 +182,13 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.1)
   byebug
   coffee-rails (~> 4.1.0)
+  dalli
   friendly_id (~> 5.1.0)
   html_truncator (~> 0.2)
   httparty
   jbuilder (~> 2.0)
   jquery-rails
+  memcachier
   newrelic_rpm
   nokogiri (>= 1.6)
   pg
