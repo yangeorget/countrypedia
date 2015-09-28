@@ -9,6 +9,26 @@ class Country < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name
 
+  def geonames_url
+    "http://www.geonames.org/countries/#{ code2.upcase }/#{ name }.html"
+  end
+
+  def geonames_largestcities_url
+    "http://www.geonames.org/#{ code2 }/largest-cities-in-#{ name }.html"
+  end
+
+  def geonames_largestcities_page
+    html = Rails.cache.fetch(geonames_largestcities_url, :expires_in => 1.day) do
+      logger.debug("fetching #{ geonames_largestcities_url }")
+      open(geonames_largestcities_url).read
+    end
+    html
+  end
+
+  def geonames_largestcities
+    Nokogiri::HTML(geonames_largestcities_page).xpath("//table[2]/tr[position() > 1]/td[2]/a[1]/text()").map{ |node| node.to_s} 
+  end
+
   def wikipedia_url
     url = "https://#{ I18n.locale }.wikipedia.org/wiki/#{ I18n.t(name)}"
     redirect = WebRedirect.find_by_from(url)

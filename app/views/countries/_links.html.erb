@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">
+      <%= content_tag(:a, t('countries.show.links'), :name => 'links') %>
+    </h2>
+  </div>
+  <div class="panel-body">
+    <dl class="dl-horizontal">
+      <dt>
+	<%= t('countries.show.links') %>
+      </dt>
+      <dd>
+	<%= link_to 'Wikipedia', @country.wikipedia_url %>,
+	<%= link_to 'GeoNames', @country.geonames_url %>
+      </dd>
+    </dl>
+  </div>
+</div>

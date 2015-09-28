@@ -12,6 +12,12 @@
       <dd>
 	<%= info['capital'] %>
       </dd>
+      <dt>
+	<%= t('countries.show.largestcities') %>
+      </dt>
+      <dd>
+	<em><%= raw(@country.geonames_largestcities.join(", ")) %></em>
+      </dd>
     </dl>
   </div>
 </div>
