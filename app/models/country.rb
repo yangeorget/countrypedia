@@ -7,6 +7,7 @@ require 'weather-api'
 
 class Country < ActiveRecord::Base
   extend FriendlyId
+  has_many :cities
   friendly_id :name
 
   def geonames_url

@@ -1,7 +1,7 @@
 <% content_for :head do %>
-    <title><%= t('countries.show.title', country: t(@country.name)) %></title>
-    <meta name="keywords" content="<%= t('countries.show.keywords', country: t(@country.name)) %>">
-    <meta name="description" content="<%= t('countries.show.description', country: t(@country.name)) %>">
+    <title><%= t('countries.show.title', place: t(@country.name)) %></title>
+    <meta name="keywords" content="<%= t('countries.show.keywords', place: t(@country.name)) %>">
+    <meta name="description" content="<%= t('countries.show.description', place: t(@country.name)) %>">
 <% end %>
 <% info = @country.restcountries_code %>
 <%= render partial: "shared/nav" %>

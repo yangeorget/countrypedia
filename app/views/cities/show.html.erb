@@ -1,0 +1,48 @@
+<% content_for :head do %>
+    <title><%= t('cities.show.title', place: t(@city.name)) %></title>
+    <meta name="keywords" content="<%= t('cities.show.keywords', place: t(@city.name)) %>">
+    <meta name="description" content="<%= t('cities.show.description', place: t(@city.name)) %>">
+<% end %>
+<% info = nil %>
+<%= render partial: "shared/nav" %>
+
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-8">
+      <%= render partial: "shared/share", locals: {text: t(@city.name)} %>
+      <h1>
+	<%= t(@city.name) %>
+      </h1>
+      <p><%= t('cities.show.description', country: t(@city.name)) %></p>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= render partial: "menu", locals: {} %>
+  </div>
+  <div class="col-md-4">
+    <%= render partial: "facts", locals: {city: @city, info: info} %>
+    <%= render partial: "weather", locals: {city: @city, info: info} %>
+    <%= render partial: "hour", locals: {city: @city, info: info} %>
+    <%= render partial: "population", locals: {city: @city, info: info} %>
+    <%= render partial: "links", locals: {city: @city, info: info} %>
+  </div>
+  <div class="col-md-8">
+    <%= render partial: "geography", locals: {city: @city, info: info} %>
+    <%= render partial: "shared/googleadsense", locals: {} %>
+    <%= render partial: "wikipedia", locals: {city: @city, info: info} %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <%= render partial: "pictures", locals: {city: @city, info: info} %>
+  </div>
+</div>
+
+
+
+
