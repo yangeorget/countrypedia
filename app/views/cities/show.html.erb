@@ -16,6 +16,9 @@
       <p><%= t('cities.show.description', country: t(@city.name)) %></p>
     </div>
     <div class="col-md-4">
+      <img 
+	 alt="<%= t(@city.name) %>"
+	 src="<%= @city.googlemaps_url(type: 'roadmap', size: '300x200')  %>"/>
     </div>
   </div>
 </div>

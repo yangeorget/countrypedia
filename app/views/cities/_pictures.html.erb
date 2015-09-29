@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">
+      <%= content_tag(:a, t('cities.show.pictures'), :name => 'pictures') %>
+    </h2>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <% Array(@city.googleimagessearch).each do |result| %>
+      <div class="col-md-4">
+	<div style="padding:10px">
+	  <img 
+	     class="img-responsive"
+	     alt="<%= t(@city.name) %>"
+	     src="<%= result['unescapedUrl'] %>">
+	</div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+

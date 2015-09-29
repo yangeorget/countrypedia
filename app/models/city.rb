@@ -1,24 +1,34 @@
-require 'nokogiri'
-require 'open-uri'
-require 'html_truncator'
 require 'httparty'
-require 'webrick/httputils'
 
 class City < ActiveRecord::Base
   extend FriendlyId
   belongs_to :country
   friendly_id :name
 
-  def geonames_url
-    "http://www.geonames.org/#{ geonames_id }/#{ name}.html"
+  def googlemaps_query
+    "#{ name } #{ self.country.name }".gsub("-", " ")
   end
 
-  def geonames_html
-    open(geonames_url).read
+  def googlemaps_url(hash)
+    params = {
+      :center => googlemaps_query,
+      :language => I18n.locale,
+      :key => "AIzaSyCRckkdFPzcbgqL2-PAhmo6aEDNU8hITQM",
+      :format => "jpg"
+    }.merge(hash)
+    url = URI.escape("https://maps.googleapis.com/maps/api/staticmap?#{ params.to_query }")
+    logger.debug("Google Maps URL=#{ url }")
+    url
   end
 
-  def geonames_name
-    Nokogiri::HTML(geonames_html).xpath("//*[@id=\"infowin\"]/div[1]/b").to_s
+  def googleimagessearch_url
+    "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&as_filetype=jpg&hl=en&imgsz=large&imgtype=photo&rsz=3&q=#{ name }+travel" 
   end
+
+    def googleimagessearch
+    Rails.cache.fetch(googleimagessearch_url, :expires_in => 1.day) do
+      HTTParty.get(googleimagessearch_url, {format: :json})['responseData']['results']
+    end
+  end   
 end
 
