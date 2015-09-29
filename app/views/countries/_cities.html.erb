@@ -16,7 +16,11 @@
 	<%= t('countries.show.largestcities') %>
       </dt>
       <dd>
-	<em><%= raw(@country.geonames_largestcities.join(", ")) %></em>
+	<% @country.cities.each do |city| %>
+	<em>
+	  <%= link_to(t(city.name), country_city_path(city.country, city)) %>
+	</em>
+	<% end %>	
       </dd>
     </dl>
   </div>

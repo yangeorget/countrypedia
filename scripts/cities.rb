@@ -1,6 +1,6 @@
 Country.all.each do |country|
   country.geonames_largestcities.each do |city|
-    city_name = I18n.transliterate(city.to_s).downcase.gsub(/[ ']/, '-')   
-    puts "Country.find_by_name('#{ country.name }').cities.create(name: '#{ city_name }')" 
+    tokens = city.split('/')
+    puts "Country.find_by_name('#{ country.name }').cities.create(geonames_id: '#{ tokens[3] }' name: '#{ tokens[4].split('.')[0] }')" 
   end
 end

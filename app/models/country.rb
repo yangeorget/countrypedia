@@ -25,7 +25,12 @@ class Country < ActiveRecord::Base
   end
 
   def geonames_largestcities
-    Nokogiri::HTML(geonames_largestcities_page).xpath("//table[2]/tr[position() > 1]/td[2]/a[1]/text()").map{ |node| node.to_s} 
+    hash = {}
+    Nokogiri::HTML(geonames_largestcities_page).xpath("//table[2]/tr[position() > 1]/td[2]/a[1]/text()").each do |node| 
+      key = node.parent['href'].split('/')[3]
+      hash[key] = node.to_s
+    end
+    hash
   end
 
   def wikipedia_url
