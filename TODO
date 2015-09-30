@@ -1,6 +1,7 @@
-use user location for tz and thus date/hour, weather
 traduire les noms des villes
 boite wikipedia (beaucoup de verifs a faire)?
+details meteo: par heure, par jour
+use user location for tz and thus date/hour, weather
 flagpedia
 listes: pays a une ville, grandes villes, ...
 https://developers.google.com/speed/pagespeed/insights/?hl=en&utm_source=wmx&utm_campaign=wmx_otherlinks&url=http%3A%2F%2Fen.countrypedia.xyz%2F&tab=mobile

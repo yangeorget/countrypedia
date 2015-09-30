@@ -3,7 +3,9 @@
   SitemapGenerator::Sitemap.sitemaps_path = "sitemaps/#{ locale }"
   SitemapGenerator::Sitemap.create do
     Country.find_each do |country|
-      add country_path(country)
+      country.cities.each do |city|
+        add country_city_path(country, city)
+      end
     end
   end
 end
