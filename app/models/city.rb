@@ -29,13 +29,13 @@ class City < ActiveRecord::Base
     {:population => population, :latitude => latitude, :longitude => longitude}
   end
 
-  def googlemaps_query
+  def google_query
     "#{ name } #{ self.country.name }".gsub("-", " ")
   end
 
   def googlemaps_url(hash)
     params = {
-      :center => googlemaps_query,
+      :center => google_query,
       :language => I18n.locale,
       :key => "AIzaSyCRckkdFPzcbgqL2-PAhmo6aEDNU8hITQM",
       :format => "jpg"
@@ -45,13 +45,11 @@ class City < ActiveRecord::Base
     url
   end
 
-  def googleimagessearch_url
-    "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&as_filetype=jpg&hl=en&imgsz=large&imgtype=photo&rsz=3&q=#{ name }+travel" 
-  end
-
   def googleimagessearch
-    Rails.cache.fetch(googleimagessearch_url, :expires_in => 1.day) do
-      HTTParty.get(googleimagessearch_url, {format: :json})['responseData']['results']
+    url = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&as_filetype=jpg&hl=en&imgsz=large&imgtype=photo&rsz=3&q=#{ google_query }+travel"     
+    logger.debug("Google Image Search URL=#{ url }")
+    Rails.cache.fetch(url, :expires_in => 1.day) do
+      HTTParty.get(url, {format: :json})['responseData']['results']
     end
   end
 
