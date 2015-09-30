@@ -1,3 +1,4 @@
+<% weather = @country.weather(info['latlng'][0], info['latlng'][1]) %>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h2 class="panel-title">
@@ -6,16 +7,23 @@
   </div>
   <div class="panel-body">
     <dl class="dl-horizontal">
-      <% 
-	 condition = country.weather ? country.weather.condition : nil  
-      %>
-      <dt>
-	<%= t('countries.show.temperature') %>
-      </dt>
-      <dd>
-	<%= condition ? condition.temp : '?' %> <%= t('countries.show.celsiusdegrees') %>
-      </dd>
-      <dt><%= t('countries.show.details') %></dt><dd><em><%= condition ? condition.text : '?' %></em></dd>
+      <dt><%= t('countries.show.weather_summary') %></dt>
+      <dd><%= weather.currently.summary %></dd>
+      <dt><%= t('countries.show.weather_temperature') %></dt>
+      <dd><%= weather.currently.temperature.round(1) %> &#8451; / <%= (weather.currently.temperature * 1.8 + 32).round(1) %>&#8457;</dd>
+      <dt><%= t('countries.show.weather_windspeed') %></dt>
+      <dd><%= weather.currently.windSpeed %> m/s</dd>
+      <dt><%= t('countries.show.weather_precipitationprobability') %></dt>
+      <dd><%= weather.currently.precipProbability %> %</dd>
+      <dt><%= t('countries.show.weather_humidity') %></dt>
+      <dd><%= weather.currently.humidity * 100 %> %</dd>
+      <dt><%= t('countries.show.weather_pressure') %></dt>
+      <dd><%= weather.currently.pressure %> mbar / hPa</dd>
+      <dt><%= t('countries.show.weather_ozone') %></dt>
+      <dd><%= weather.currently.ozone %> Dobson</dd>
     </dl>
+    <p>
+      <%= t('countries.show.forecastio_link') %> <%= link_to 'forecast.io', "http://forecast.io/#/f/#{ info['latlng'][0] },#{ info['latlng'][1] }" %>.
+    </p>
   </div>
 </div>

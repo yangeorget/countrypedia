@@ -63,5 +63,9 @@ class City < ActiveRecord::Base
   def google_time(timestamp)
     HTTParty.get(google_time_url(timestamp))
   end
+
+  def weather(latitude, longitude)
+    ForecastIO.forecast(latitude, longitude, params: { lang: I18n.locale, units: 'si', exclude: "minutely,daily" })
+  end
 end
 

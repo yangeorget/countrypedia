@@ -14,11 +14,9 @@ en:
       borders: "Borders"
       calling_codes: "Calling codes"
       capital: "Capital"
-      celsiusdegrees: "Celsius degrees"
       cities: "Cities"
       currencies: "Currencies"
       demonym: "Demonym"
-      details: "Details"
       facts: "Some facts"	
       flag: "Flag"
       geography: "Geographie"
@@ -35,10 +33,17 @@ en:
       population: "Population"
       region: "Region"
       subregion: "Sub-region"
-      temperature: "Temperature"
       timezones: "Timezones"
       tld: "Top Level Domain"
       weather: "Weather"
+      weather_summary: "Summary"
+      weather_temperature: "Temperature"
+      weather_windspeed: "Wind speed"
+      weather_precipitationprobability: "Rain probability"
+      weather_humidity: "Humidity"
+      weather_pressure: "Pressure"
+      weather_ozone: "Ozone"
+      forecastio_link: 'More details on'
       wikipedia_link: 'More details on'
       wikipedia_summary: 'In brief'  
       wikipedia_history: 'History' 

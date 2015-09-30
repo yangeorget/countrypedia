@@ -4,6 +4,7 @@ require 'html_truncator'
 require 'httparty'
 require 'webrick/httputils'
 require 'weather-api'
+require 'forecast_io'
 
 class Country < ActiveRecord::Base
   extend FriendlyId
@@ -129,12 +130,8 @@ class Country < ActiveRecord::Base
     "#{ code2.downcase }.png"
   end
   
-  def weather
-    Rails.cache.fetch(woeid, :expires_in => 1.hour) do
-      Weather.lookup(woeid, Weather::Units::CELSIUS)
-    end
-  rescue RuntimeError => e
-    nil
+  def weather(latitude, longitude)
+    ForecastIO.forecast(latitude, longitude, params: { lang: I18n.locale, units: 'si', exclude: "minutely,daily" })
   end
 end
 

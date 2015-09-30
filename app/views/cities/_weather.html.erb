@@ -1,3 +1,4 @@
+<% weather = @city.weather(info[:latitude], info[:longitude]) %>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h2 class="panel-title">
@@ -6,7 +7,23 @@
   </div>
   <div class="panel-body">
     <dl class="dl-horizontal">
+      <dt><%= t('cities.show.weather_summary') %></dt>
+      <dd><%= weather.currently.summary %></dd>
+      <dt><%= t('cities.show.weather_temperature') %></dt>
+      <dd><%= weather.currently.temperature.round(1) %> &#8451; / <%= (weather.currently.temperature * 1.8 + 32).round(1) %>&#8457;</dd>
+      <dt><%= t('cities.show.weather_windspeed') %></dt>
+      <dd><%= weather.currently.windSpeed %> m/s</dd>
+      <dt><%= t('cities.show.weather_precipitationprobability') %></dt>
+      <dd><%= weather.currently.precipProbability %> %</dd>
+      <dt><%= t('cities.show.weather_humidity') %></dt>
+      <dd><%= weather.currently.humidity * 100 %> %</dd>
+      <dt><%= t('cities.show.weather_pressure') %></dt>
+      <dd><%= weather.currently.pressure %> mbar / hPa</dd>
+      <dt><%= t('cities.show.weather_ozone') %></dt>
+      <dd><%= weather.currently.ozone %> Dobson</dd>
     </dl>
+    <p>
+      <%= t('cities.show.forecastio_link') %> <%= link_to 'forecast.io', "http://forecast.io/#/f/#{ info[:latitude] },#{ info[:longitude] }" %>.
+    </p>
   </div>
 </div>
-

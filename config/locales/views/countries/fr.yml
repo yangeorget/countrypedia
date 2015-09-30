@@ -14,11 +14,9 @@ fr:
       borders: "Frontières"
       calling_codes: "Préfixes d'appel"	
       capital: "Capitale"
-      celsiusdegrees: "degrés Celsius"
       cities: "Villes"
       currencies: "Monnaies"
       demonym: "Gentilé"
-      details: "Détails"
       facts: "Quelques faits" 
       flag: "Drapeau"
       geography: "Géographie"
@@ -35,10 +33,17 @@ fr:
       population: "Population"
       region: "Région"
       subregion: "Sous-région"
-      temperature: "Température"
       timezones: "Zones horaires"
       tld: "Top Level Domain"
       weather: "Météo"
+      weather_summary: "Résumé"
+      weather_temperature: "Température"
+      weather_windspeed: "Vitesse du vent"
+      weather_precipitationprobability: "Probabilité de pluie"	
+      weather_humidity: "Humidité"
+      weather_pressure: "Pression"
+      weather_ozone: "Ozone"
+      forecastio_link: 'Plus de détails sur'
       wikipedia_link: 'Plus de détails sur'
       wikipedia_summary: 'En bref'  
       wikipedia_history: 'Histoire' 

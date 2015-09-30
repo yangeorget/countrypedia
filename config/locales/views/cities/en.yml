@@ -17,10 +17,18 @@ en:
       pictures: "Pictures"
       population: "Population"
       temperature: "Temperature"
-      timezone_dst: "TZ with DST"	
-      timezone_id: "TZ id"
-      timezone_name: "TZ name"
+      timezone_dst: "DST timezone"	
+      timezone_id: "Timezone id"
+      timezone_name: "Timezone name"
       weather: "Weather"
+      weather_summary: "Summary"
+      weather_temperature: "Temperature"
+      weather_windspeed: "Wind speed"
+      weather_precipitationprobability: "Rain probability"
+      weather_humidity: "Humidity"
+      weather_pressure: "Pressure"
+      weather_ozone: "Ozone"
+      forecastio_link: 'More details on'
       wikipedia_link: 'More details on'
       wikipedia_summary: 'In brief'  
       wikipedia_history: 'History' 

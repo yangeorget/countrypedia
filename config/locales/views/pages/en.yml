@@ -4,6 +4,8 @@ en:
       title: "About"
       data_title: "About our data"
       data_text: "The data displayed in Countrypedia is updated very frequently and comes from the following sources:"
+      technology_title: "About our technology"
+      technology_text: "Countrypedia is developed in <a href='http://rubyonrails.org/'>Ruby On Rails</a> and is hosted on <a href='http://heroku.com'>Heroku</a>. The code of Countrypedia is available on <a href='https://github.com/yangeorget/countrypedia'>Github</a>."
       contact_title: "Contact us!"
       contact_why: "Feel free to contact us for: reporting bugs, submit new feature requests, propose a partnership."
       contact_email: "You can reach us at:"

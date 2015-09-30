@@ -18,14 +18,22 @@
       <%= t('pages.about.data_text') %>
     </p>
     <ul>
+      <li><%= link_to "forecast.io", "http://forecast.io/" %></li>
       <li><%= link_to "GeoNames", "http://www.geonames.org/" %></li>
       <li><%= link_to "Google Maps", "https://maps.google.com" %></li>
-      <li><%= link_to "Wikipedia", "https://www.wikipedia.org" %></li>
-      <li><%= link_to "Yahoo Weather", "https://weather.yahoo.com/" %></li>
       <li><%= link_to "open exchange rates", "https://openexchangerates.org" %></li>
       <li><%= link_to "REST countries", "https://restcountries.eu" %></li>
+      <li><%= link_to "Wikipedia", "https://www.wikipedia.org" %></li>
     </ul>
+  </div>
 
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= t('pages.about.technology_title') %></h3>
+  </div>
+  <div class="panel-body">
+    <p>
+      <%= raw(t('pages.about.technology_text')) %>
+    </p>
   </div>
 </div>
 
