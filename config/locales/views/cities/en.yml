@@ -3,8 +3,8 @@ en:
     index:
       random_title: "City random picker"
     show:
-      title: "Countrypedia, your travel guide - %{ place }"
-      keywords: "countrypedia,travel,travel guide,trip,discover %{ place },%{ place },information"
+      title: "Countrypedia, your travel guide - %{place}"
+      keywords: "countrypedia,travel guide,trip %{place},information %{place},weather %{place},map %{place}"
       description: "Countrypedia is your travel one-stop shop. Countrypedia aggregates various sources of information, updated in real time, and is available in several languages."
       celsiusdegrees: "Celsius degrees"
       country: "Country"

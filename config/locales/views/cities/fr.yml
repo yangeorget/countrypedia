@@ -3,8 +3,8 @@ fr:
     index:
       random_title: "Choisissez une ville au hasard"
     show:
-      title: "Countrypedia, votre guide de voyage - %{ place }"
-      keywords: "countrypedia,voyage,guide de voyage,decouvrir %{ place},%{ place },information"
+      title: "Countrypedia, votre guide de voyage - %{place}"
+      keywords: "countrypedia,guide de voyage,voyage %{place},information %{place},meteo %{place},carte %{place},plan %{place}"
       description: "Faites confiance à Countrypedia pour préparer votre voyage. Countrypedia aggrège différentes sources d'information, mises à jour en temps réel, et est disponible dans plusieurs langues."
       celsiusdegrees: "degrés Celsius"
       country: "Pays"
