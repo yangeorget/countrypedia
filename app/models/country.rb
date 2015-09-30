@@ -99,6 +99,7 @@ class Country < ActiveRecord::Base
         'population' => nil,
         'region' => nil,
         'subregion' => nil,
+        'timezones' => [nil],
         'topLevelDomain' => [nil]
       }
     end

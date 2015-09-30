@@ -16,11 +16,15 @@
 	<%= t('countries.show.largestcities') %>
       </dt>
       <dd>
-	<% @country.cities.each do |city| %>
-	<em>
-	  <%= link_to(t(city.name), country_city_path(city.country, city)) %>
-	</em>
-	<% end %>	
+	<ul class="list-unstyled">
+	  <% @country.cities.each do |city| %>
+	  <li>
+	    <em>
+	      <%= link_to(t(city.name), country_city_path(city.country, city)) %>
+	    </em>
+	  </li>
+	  <% end %>
+	</ul>
       </dd>
     </dl>
   </div>

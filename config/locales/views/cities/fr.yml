@@ -4,9 +4,10 @@ fr:
       random_title: "Choisissez une ville au hasard"
     show:
       title: "Countrypedia, votre guide de voyage - %{ place }"
-      keywords: "countrypedia, voyage, guide de voyage, decouvrir %{ place}, %{ place }, information"
+      keywords: "countrypedia,voyage,guide de voyage,decouvrir %{ place},%{ place },information"
       description: "Faites confiance à Countrypedia pour préparer votre voyage. Countrypedia aggrège différentes sources d'information, mises à jour en temps réel, et est disponible dans plusieurs langues."
       celsiusdegrees: "degrés Celsius"
+      country: "Pays"
       facts: "Quelques faits" 
       geography: "Géographie"
       hour: "Heure"
@@ -15,8 +16,10 @@ fr:
       longitude: "Longitude"
       pictures: "Photos"
       population: "Population"
-      temperature: "Temapérture"
-      timezones: "Zones horaires"
+      temperature: "Température"
+      timezone_dst: "Fuseau horaire avec heure d'été"
+      timezone_id: "Identifiant de fuseau horaire"
+      timezone_name: "Nom de fuseau horaire"
       weather: "Météo"
       wikipedia_link: 'Plus de détails sur'
       wikipedia_summary: 'En bref'  

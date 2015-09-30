@@ -1,3 +1,7 @@
+<% timestamp = Time.now.to_i %>
+<% time_info = @city.google_time(timestamp) %>
+<%  rawOffset = time_info['rawOffset'] %>
+<%  dstOffset = time_info['dstOffset'] %>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h2 class="panel-title">
@@ -6,6 +10,25 @@
   </div>
   <div class="panel-body">
     <dl class="dl-horizontal">
+       <dt>
+	 <%= t('cities.show.timezone_dst') %>
+       </dt>
+       <dd>
+	 UTC<%= Time.at(timestamp + rawOffset + dstOffset).strftime("%z") %>
+       </dd>
+       <dt>
+	  <%= link_to t('cities.show.timezone_id'), "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" %>
+	</dt>
+	<dd>
+	  <%= time_info['timeZoneId'] %>
+	</dd>
+       <dt>
+	  <%= t('cities.show.timezone_name') %>
+	</dt>
+	<dd>
+	  <%= time_info['timeZoneName'] %>
+	</dd>
+
     </dl>
   </div>
 </div>

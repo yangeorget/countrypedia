@@ -3,7 +3,7 @@
     <meta name="keywords" content="<%= t('cities.show.keywords', place: t(@city.name)) %>">
     <meta name="description" content="<%= t('cities.show.description', place: t(@city.name)) %>">
 <% end %>
-<% info = nil %>
+<% info = @city.geonames_info %> 
 <%= render partial: "shared/nav" %>
 
 <div class="jumbotron">
@@ -28,7 +28,6 @@
     <%= render partial: "menu", locals: {} %>
   </div>
   <div class="col-md-4">
-    <%= render partial: "facts", locals: {city: @city, info: info} %>
     <%= render partial: "weather", locals: {city: @city, info: info} %>
     <%= render partial: "hour", locals: {city: @city, info: info} %>
     <%= render partial: "population", locals: {city: @city, info: info} %>

@@ -10,8 +10,10 @@
 	<%= t('countries.show.links') %>
       </dt>
       <dd>
-	<%= link_to 'Wikipedia', @country.wikipedia_url %>,
-	<%= link_to 'GeoNames', @country.geonames_url %>
+	<ul class="list-unstyled"> 
+	  <li><%= link_to 'Wikipedia', @country.wikipedia_url %></li>
+	  <li><%= link_to 'GeoNames', @country.geonames_url %></li>
+	</ul>
       </dd>
     </dl>
   </div>

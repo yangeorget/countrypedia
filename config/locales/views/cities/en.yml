@@ -4,9 +4,10 @@ en:
       random_title: "City random picker"
     show:
       title: "Countrypedia, your travel guide - %{ place }"
-      keywords: "countrypedia, travel, travel guide, trip, discover %{ place }, %{ place }, information"
+      keywords: "countrypedia,travel,travel guide,trip,discover %{ place },%{ place },information"
       description: "Countrypedia is your travel one-stop shop. Countrypedia aggregates various sources of information, updated in real time, and is available in several languages."
       celsiusdegrees: "Celsius degrees"
+      country: "Country"
       facts: "Some facts"	
       geography: "Geographie"
       hour: "Hour"
@@ -16,7 +17,9 @@ en:
       pictures: "Pictures"
       population: "Population"
       temperature: "Temperature"
-      timezones: "Timezones"
+      timezone_dst: "TZ with DST"	
+      timezone_id: "TZ id"
+      timezone_name: "TZ name"
       weather: "Weather"
       wikipedia_link: 'More details on'
       wikipedia_summary: 'In brief'  
