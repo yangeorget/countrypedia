@@ -81,10 +81,11 @@ class Country < ActiveRecord::Base
     }
     url = "https://www.googleapis.com/customsearch/v1?#{ params.to_query }"     
     logger.debug("Google Custom Search URL=#{ url }")
-    Rails.cache.fetch(url, :expires_in => 1.day) do
-      HTTParty.get(url)['items'].map { |json| json['link'] }
+    links = Rails.cache.fetch(url, :expires_in => 10.days) do
+      (HTTParty.get(url)['items'] || []).map { |result| result['link'] }
     end
-    
+    logger.debug("Google Custom Search links=#{ links }")
+    links
   end
 
   def restcountries_code_url
