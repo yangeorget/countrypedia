@@ -84,6 +84,7 @@ class Country < ActiveRecord::Base
     Rails.cache.fetch(url, :expires_in => 1.day) do
       HTTParty.get(url)['items'].map { |json| json['link'] }
     end
+    
   end
 
   def restcountries_code_url
