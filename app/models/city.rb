@@ -43,6 +43,23 @@ class City < ActiveRecord::Base
 
   def googleimagessearch
     params = {
+      :v => "1.0",
+      :as_filetype => "jpg",
+      :hl => "en",
+      :imgsz => "large",
+      :imgtype => "photo",
+      :rsz => "4",
+      :q => "view #{ name } #{ self.country.name }".gsub("-", " ")
+    }
+    url = "https://ajax.googleapis.com/ajax/services/search/images?#{ params.to_query }"
+    logger.debug("Google Images Search URL=#{ url }")
+    Rails.cache.fetch(url, :expires_in => 10.days) do
+      HTTParty.get(url, {format: :json})['responseData']['results'].map { |result| result['unescapedUrl'] }
+    end
+  end
+
+  def googleimagessearch_cse
+    params = {
       :fileType => "jpg",
       :filter => "1",
       :hl => "en",

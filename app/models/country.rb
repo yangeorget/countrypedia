@@ -51,13 +51,9 @@ class Country < ActiveRecord::Base
     paragraphs
   end
 
-  def googlemaps_query
-    "#{ name } country".gsub("-", " ")
-  end
-
   def googlemaps_url(hash)
     params = {
-      :center => googlemaps_query,
+      :center => "#{ name } country".gsub("-", " "),
       :language => I18n.locale,
       :key => "AIzaSyCRckkdFPzcbgqL2-PAhmo6aEDNU8hITQM",
       :format => "jpg"
@@ -66,6 +62,23 @@ class Country < ActiveRecord::Base
   end
 
   def googleimagessearch
+    params = {
+      :v => "1.0",
+      :as_filetype => "jpg",
+      :hl => "en",
+      :imgsz => "large",
+      :imgtype => "photo",
+      :rsz => "3",
+      :q => "landscape #{ name }".gsub("-", " ")
+    }
+    url = "https://ajax.googleapis.com/ajax/services/search/images?#{ params.to_query }"
+    logger.debug("Google Images Search URL=#{ url }")
+    Rails.cache.fetch(url, :expires_in => 10.days) do
+      HTTParty.get(url, {format: :json})['responseData']['results'].map { |result| result['unescapedUrl'] }
+    end
+  end
+
+  def googleimagessearch_cse
     params = {
       # :fileType => "jpg",
       :filter => "1",
