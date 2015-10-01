@@ -73,9 +73,9 @@ class Country < ActiveRecord::Base
     }
     url = "https://ajax.googleapis.com/ajax/services/search/images?#{ params.to_query }"
     logger.debug("Google Images Search URL=#{ url }")
-    Rails.cache.fetch(url, :expires_in => 10.days) do
+    # Rails.cache.fetch(url, :expires_in => 10.days) do
       HTTParty.get(url, {format: :json})['responseData']['results'].map { |result| result['unescapedUrl'] }
-    end
+    # end
   end
 
   def googleimagessearch_cse

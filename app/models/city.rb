@@ -48,7 +48,7 @@ class City < ActiveRecord::Base
       :hl => "en",
       :imgsz => "large",
       :imgtype => "photo",
-      :rsz => "4",
+      :rsz => "3",
       :q => "view #{ name } #{ self.country.name }".gsub("-", " ")
     }
     url = "https://ajax.googleapis.com/ajax/services/search/images?#{ params.to_query }"
@@ -65,7 +65,7 @@ class City < ActiveRecord::Base
       :hl => "en",
       :imgColorType => "color",
       :imgType => "photo",
-      :num => "4",
+      :num => "3",
       :safe => "high",
       :searchType =>"image",
       :key => "AIzaSyCRckkdFPzcbgqL2-PAhmo6aEDNU8hITQM",
