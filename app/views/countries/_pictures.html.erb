@@ -15,12 +15,12 @@
 	</div>
       </div>
       <div class="col-md-4">
-	<% Array(@country.googleimagessearch).each do |result| %>
+	<% Array(@country.googleimagessearch).each do |link| %>
 	<div style="padding:10px">
 	  <img 
 	     class="img-responsive"
 	     alt="<%= t(@country.name) %>"
-	     src="<%= result['unescapedUrl'] %>">
+	     src="<%= link %>" />
 	  </div>
 	<% end %>
       </div>

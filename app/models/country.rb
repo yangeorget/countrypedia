@@ -65,15 +65,26 @@ class Country < ActiveRecord::Base
     URI.escape("https://maps.googleapis.com/maps/api/staticmap?#{ params.to_query }")
   end
 
-  def googleimagessearch_url
-    "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&as_filetype=jpg&hl=en&imgsz=large&imgtype=photo&rsz=3&q=#{ name }+travel" 
-  end
-
   def googleimagessearch
-    Rails.cache.fetch(googleimagessearch_url, :expires_in => 1.day) do
-      HTTParty.get(googleimagessearch_url, {format: :json})['responseData']['results']
+    params = {
+      # :fileType => "jpg",
+      :filter => "1",
+      :hl => "en",
+      :imgColorType => "color",
+      :imgType => "photo",
+      :num => "3",
+      :safe => "high",
+      :searchType => "image",
+      :key => "AIzaSyCRckkdFPzcbgqL2-PAhmo6aEDNU8hITQM",
+      :cx => "009539199191619195333:li9wvueep3e",
+      :q => "landscape #{ name }".gsub("-", " ")
+    }
+    url = "https://www.googleapis.com/customsearch/v1?#{ params.to_query }"     
+    logger.debug("Google Custom Search URL=#{ url }")
+    Rails.cache.fetch(url, :expires_in => 1.day) do
+      HTTParty.get(url)['items'].map { |json| json['link'] }
     end
-  end   
+  end
 
   def restcountries_code_url
     "https://restcountries.eu/rest/v1/alpha?codes=#{ code2 }"

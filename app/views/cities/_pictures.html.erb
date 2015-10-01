@@ -1,3 +1,4 @@
+<% links = Array(@city.googleimagessearch)  %>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h2 class="panel-title">
@@ -6,19 +7,26 @@
   </div>
   <div class="panel-body">
     <div class="row">
-      <% Array(@city.googleimagessearch).each do |result| %>
       <div class="col-md-4">
-	<div style="padding:10px">
-	  <img 
-	     class="img-responsive"
-	     alt="<%= t(@city.name) %>"
-	     src="<%= result['unescapedUrl'] %>">
-	</div>
+	<img 
+	   class="img-responsive"
+	   alt="<%= t(@city.name) %>"
+	   src="<%= links[0] %>"/>
       </div>
-      <% end %>
+      <div class="col-md-4">
+	<img 
+	   class="img-responsive"
+	   alt="<%= t(@city.name) %>"
+	   src="<%= links[1] %>"/>
+      </div>
+      <div class="col-md-4">
+	<img 
+	   class="img-responsive"
+	   alt="<%= t(@city.name) %>"
+	   src="<%= links[2] %>"/>
+      </div>
     </div>
   </div>
 </div>
-
 
 

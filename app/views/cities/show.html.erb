@@ -34,8 +34,8 @@
     <%= render partial: "links", locals: {city: @city, info: info} %>
   </div>
   <div class="col-md-8">
-    <%= render partial: "geography", locals: {city: @city, info: info} %>
     <%= render partial: "shared/googleadsense", locals: {} %>
+    <%= render partial: "geography", locals: {city: @city, info: info} %>
     <%= render partial: "wikipedia", locals: {city: @city, info: info} %>
   </div>
 </div>

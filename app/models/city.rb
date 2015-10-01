@@ -29,13 +29,9 @@ class City < ActiveRecord::Base
     {:population => population, :latitude => latitude, :longitude => longitude}
   end
 
-  def google_query
-    "#{ name } #{ self.country.name }".gsub("-", " ")
-  end
-
   def googlemaps_url(hash)
     params = {
-      :center => google_query,
+      :center => "#{ name } #{ self.country.name }".gsub("-", " "),
       :language => I18n.locale,
       :key => "AIzaSyCRckkdFPzcbgqL2-PAhmo6aEDNU8hITQM",
       :format => "jpg"
@@ -46,16 +42,35 @@ class City < ActiveRecord::Base
   end
 
   def googleimagessearch
-    url = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&as_filetype=jpg&hl=en&imgsz=large&imgtype=photo&rsz=3&q=#{ google_query }+travel"     
-    logger.debug("Google Image Search URL=#{ url }")
+    params = {
+      :fileType => "jpg",
+      :filter => "1",
+      :hl => "en",
+      :imgColorType => "color",
+      :imgType => "photo",
+      :num => "4",
+      :safe => "high",
+      :searchType =>"image",
+      :key => "AIzaSyCRckkdFPzcbgqL2-PAhmo6aEDNU8hITQM",
+      :cx => "009539199191619195333:li9wvueep3e",
+      :q => "view city #{ name } #{ self.country.name }".gsub("-", " ")
+    }
+    url = "https://www.googleapis.com/customsearch/v1?#{ params.to_query }"     
+    logger.debug("Google Custom Search URL=#{ url }")
     Rails.cache.fetch(url, :expires_in => 1.day) do
-      HTTParty.get(url, {format: :json})['responseData']['results']
+      HTTParty.get(url)['items'].map { |json| json['link'] }
     end
   end
 
   def google_time_url(timestamp)
     info = geonames_info
-    "https://maps.googleapis.com/maps/api/timezone/json?key=AIzaSyCRckkdFPzcbgqL2-PAhmo6aEDNU8hITQM&location=#{ info[:latitude] },#{ info[:longitude] }&timestamp=#{ timestamp }&language=#{ I18n.locale }"
+    params = {
+      :key => "AIzaSyCRckkdFPzcbgqL2-PAhmo6aEDNU8hITQM",
+      :location => "#{ info[:latitude] },#{ info[:longitude] }",
+      :timestamp => "#{ timestamp }",
+      :language => "#{ I18n.locale }"
+    }
+    "https://maps.googleapis.com/maps/api/timezone/json?#{ params.to_query }"
   end
 
   def google_time(timestamp)

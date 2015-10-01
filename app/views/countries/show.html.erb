@@ -1,7 +1,7 @@
 <% content_for :head do %>
-    <title><%= t('countries.show.title', place: t(@country.name)) %></title>
-    <meta name="keywords" content="<%= t('countries.show.keywords', place: t(@country.name)) %>">
-    <meta name="description" content="<%= t('countries.show.description', place: t(@country.name)) %>">
+<title><%= t('countries.show.title', place: t(@country.name)) %></title>
+<meta name="keywords" content="<%= t('countries.show.keywords', place: t(@country.name)) %>">
+<meta name="description" content="<%= t('countries.show.description', place: t(@country.name)) %>">
 <% end %>
 <% info = @country.restcountries_code %>
 <%= render partial: "shared/nav" %>
@@ -42,8 +42,8 @@
     <%= render partial: "travisa", locals: {country: @country, info: info} %>
   </div>
   <div class="col-md-8">
-    <%= render partial: "geography", locals: {country: @country, info: info} %>
     <%= render partial: "shared/googleadsense", locals: {} %>
+    <%= render partial: "geography", locals: {country: @country, info: info} %>
     <%= render partial: "wikipedia", locals: {country: @country, info: info} %>
   </div>
 </div>
