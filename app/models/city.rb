@@ -24,7 +24,7 @@ class City < ActiveRecord::Base
   end
 
   def google_images_search(nb)
-    Util::Google.images_search(nb, "view #{ name } #{ self.country.name }".gsub("-", " "))
+    Util::Google.images_search(nb, "picture city #{ name } #{ self.country.name }".gsub("-", " "))
   end
 end
 

@@ -41,7 +41,7 @@ class Country < ActiveRecord::Base
   end
 
   def google_images_search(nb)
-    Util::Google.images_search(nb, "landscape #{ name }".gsub("-", " "))
+    Util::Google.images_search(nb, "picture country #{ name }".gsub("-", " "))
   end
   
   def borders(codes)

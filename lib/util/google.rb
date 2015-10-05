@@ -44,7 +44,6 @@ class Util::Google
       :v => "1.0",
       :as_filetype => "jpg",
       :hl => "en",
-      :imgsz => "large",
       :imgtype => "photo",
       :rsz => nb,
       :q => query

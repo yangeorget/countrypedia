@@ -7,24 +7,16 @@
   </div>
   <div class="panel-body">
     <div class="row">
+      <% (0..2).each do |i| %>
       <div class="col-md-4">
-	<img 
-	   class="img-responsive"
-	   alt="<%= t(@city.name) %>"
-	   src="<%= links[0] %>"/>
+	<a href="<%=links[i] %>">
+	  <img 
+	     class="img-responsive"
+	     alt="<%= t(@city.name) %>"
+	     src="<%= links[i] %>"/>
+	</a>
       </div>
-      <div class="col-md-4">
-	<img 
-	   class="img-responsive"
-	   alt="<%= t(@city.name) %>"
-	   src="<%= links[1] %>"/>
-      </div>
-      <div class="col-md-4">
-	<img 
-	   class="img-responsive"
-	   alt="<%= t(@city.name) %>"
-	   src="<%= links[2] %>"/>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>

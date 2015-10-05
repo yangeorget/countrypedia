@@ -17,11 +17,13 @@
       <div class="col-md-4">
 	<% @country.google_images_search(3).each do |link| %>
 	<div style="padding:10px">
-	  <img 
-	     class="img-responsive"
-	     alt="<%= t(@country.name) %>"
-	     src="<%= link %>" />
-	  </div>
+	  <a href="<%= link %>">
+	    <img 
+	       class="img-responsive"
+	       alt="<%= t(@country.name) %>"
+	       src="<%= link %>" />
+	  </a>
+	</div>
 	<% end %>
       </div>
     </div>
