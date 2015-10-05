@@ -13,6 +13,9 @@
       <h1>
 	<%= t(@city.name) %>
       </h1>
+      <h2>
+	<%= t(@city.country.name) %>
+      </h2>
       <p><%= t('cities.show.description', country: t(@city.name)) %></p>
     </div>
     <div class="col-md-4">

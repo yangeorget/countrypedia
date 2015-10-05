@@ -6,7 +6,7 @@ class Util::Google
 
   def self.staticmaps_url(type, width, height, query)
     params = {
-      :type => type,
+      :maptype => type,
       :size => "#{ width }x#{ height }",
       :center => query,
       :language => I18n.locale,

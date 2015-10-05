@@ -13,9 +13,7 @@
       <% nativeName = info['nativeName'] %>
       <h1>
 	<%= t(@country.name) %>
-	<% if (nativeName != t(@country.name)) %>
 	<em><small><%= nativeName %></small></em>
-	<% end %>
       </h1>
       <p><%= t('countries.show.description', country: t(@country.name)) %></p>
     </div>
