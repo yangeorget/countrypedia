@@ -1,9 +1,10 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
-      <li><%= link_to(t(:world), root_path) %></li>
-      <li><%= link_to t('countries.index.random_title'), countries_random_path %></li>
-      <li><%= link_to t('cities.index.random_title'), cities_random_path %></li>
+      <li><%= link_to(t('world_countries'), countries_path) %></li>
+      <li><%= link_to(t('world_cities'), cities_path) %></li>
+      <li><%= link_to(t('countries.index.random_title'), countries_random_path) %></li>
+      <li><%= link_to(t('cities.index.random_title'), cities_random_path) %></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <% if I18n.locale == :en %>

@@ -1,7 +1,9 @@
 fr:	
   cities:
     index:
+      choose_city: "Choisissez parmi les villes suivants"			
       random_title: "Choisissez une ville au hasard"
+      random_text: "Cliquez ici et laissez Countrypedia choisir une ville pour vous!"	
     show:
       title: "Countrypedia, votre guide de voyage - %{place}"
       keywords: "countrypedia,encyclopedie du tourisme,guide de voyage,voyage %{place},information %{place},meteo %{place},carte %{place},plan %{place}"

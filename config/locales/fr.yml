@@ -1,5 +1,6 @@
 fr:
-  world: "Monde"
+  world_countries: "Pays du monde"
+  world_cities: "Principales villes du monde"
   title: "Countrypedia, l'encyclopedie du tourisme"
   about: "à propos"
   keywords: "countrypedia,encyclopedie du tourisme,apprendre,decouvrir,mashup,voyage,guide de voyage,destination,information,donnees,pays,monde,terre,europe,asie,amerique,afrique,oceanie"

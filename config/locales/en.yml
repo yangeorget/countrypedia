@@ -1,5 +1,6 @@
 en:
-  world: "World"
+  world_countries: "Countries of the world"
+  world_cities: "Main cities of the world"
   title: "Countrypedia, the tourism encyclopedia"
   about: "about"
   keywords: "countrypedia,tourism encyclopedia,learn,discover,mashup,travel,travel guide,trip,destination,information,data,cities,history,geography,culture,timezones,currencies,pictures,photos,population,meteo,countries,world,earth,europe,asia,america,africa,oceania"

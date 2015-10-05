@@ -1,21 +1,21 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h2><%= t('countries.index.choose_country') %></h2>
+    <h2><%= t('cities.index.choose_city') %></h2>
   </div>
   <div style="padding: 20px">
     <ul class="list-inline text-center">
-      <% @glossary.each do |letter, countries| %>
+      <% @glossary.each do |letter, cities| %>
       <%= link_to letter.upcase , "##{ letter } " %>
       <% end %>
     </ul>
-    <% @glossary.each do |letter, countries| %>
+    <% @glossary.each do |letter, cities| %>
     <h3>
       <%= content_tag(:a, letter.upcase, :name => letter) %>
     </h3>
     <ul class="list-inline">
-      <% countries.each do |country| %>
+      <% cities.each do |city| %>
       <li>
-	<%= link_to(t(country.name), [country]) %>
+	<%= link_to(t(city.name), [city.country, city]) %>
       </li>
       <% end %>
     </ul>
