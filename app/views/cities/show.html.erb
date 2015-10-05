@@ -18,7 +18,7 @@
     <div class="col-md-4">
       <img 
 	 alt="<%= t(@city.name) %>"
-	 src="<%= @city.googlemaps_url(type: 'roadmap', size: '300x200')  %>"/>
+	 src="<%= @city.google_staticmaps_url('roadmap', 300, 200)  %>"/>
     </div>
   </div>
 </div>

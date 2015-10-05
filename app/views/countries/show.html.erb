@@ -3,7 +3,7 @@
 <meta name="keywords" content="<%= t('countries.show.keywords', place: t(@country.name)) %>">
 <meta name="description" content="<%= t('countries.show.description', place: t(@country.name)) %>">
 <% end %>
-<% info = @country.restcountries_code %>
+<% info = Util::Restcountries.country_by_code2(@country.code2) %>
 <%= render partial: "shared/nav" %>
 
 <div class="jumbotron">
@@ -22,7 +22,7 @@
     <div class="col-md-4">
       <img 
 	 alt="<%= t(@country.name) %>"
-	 src="<%= @country.googlemaps_url(type: 'roadmap', size: '300x200')  %>"/>
+	 src="<%= @country.google_staticmaps_url('roadmap', 300, 200)  %>"/>
     </div>
   </div>
 </div>

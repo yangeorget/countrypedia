@@ -19,30 +19,32 @@
 	<%= info['currencies'].join(", ") %>
       </dd>
     <% 
-       rates = @country.openexchangerates
-       eur_rate = rates['EUR']
-       gbp_rate = rates['GBP']
-       usd_rate = rates['USD'] 
-       Array(info['currencies']).each do |currency|
-         currency_rate = rates[currency]
-         if currency_rate != nil && currency != 'EUR' %>
+       rates = Util::Openexchangerates.rates
+       if rates 
+         eur_rate = rates['EUR']
+         gbp_rate = rates['GBP']
+         usd_rate = rates['USD'] 
+         Array(info['currencies']).each do |currency|
+           currency_rate = rates[currency]
+           if currency_rate != nil && currency != 'EUR' %>
       <dt>1 <%= currency %> =</dt>
       <dd><%= (eur_rate / currency_rate).round(3)  %> EUR</dd>
     <%  
-         end 
-         if currency_rate != nil && currency != 'GBP' 
+           end 
+           if currency_rate != nil && currency != 'GBP' 
     %>
       <dt>1 <%= currency %> =</dt>
       <dd><%= (gbp_rate / currency_rate).round(3)  %> GBP</dd>
     <% 
-         end
-         if currency_rate != nil && currency != 'USD' 
+           end
+           if currency_rate != nil && currency != 'USD' 
     %>
       <dt>1 <%= currency %> =</dt>
       <dd><%= (usd_rate / currency_rate).round(3)  %> USD</dd>
     <% 
-         end 
-       end 
+           end 
+         end
+       end
     %>
     </dl>
   </div>

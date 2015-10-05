@@ -11,11 +11,11 @@
 	  <img 
 	     class="img-responsive" 
 	     alt="<%= t(@country.name) %>"
-	     src="<%= @country.googlemaps_url(maptype: 'hybrid', size: '1000x1000')  %>"/>
+	     src="<%= @country.google_staticmaps_url('hybrid', 1000, 1000)  %>"/>
 	</div>
       </div>
       <div class="col-md-4">
-	<% @country.googleimagessearch.each do |link| %>
+	<% @country.google_images_search(3).each do |link| %>
 	<div style="padding:10px">
 	  <img 
 	     class="img-responsive"

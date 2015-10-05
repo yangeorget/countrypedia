@@ -1,7 +1,8 @@
-<% timestamp = Time.now.to_i %>
-<% time_info = @city.google_time(timestamp) %>
-<%  rawOffset = time_info['rawOffset'] %>
-<%  dstOffset = time_info['dstOffset'] %>
+<% 
+   info = @city.geonames_info
+   timestamp = Time.now.to_i
+   time_info = Util::Google.time(timestamp, info[:latitude], info[:longitude]) 
+%>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h2 class="panel-title">
@@ -9,7 +10,12 @@
     </h2>
   </div>
   <div class="panel-body">
+    <% if time_info && time_info['status'] == 'OK' %>
     <dl class="dl-horizontal">
+       <%
+	 rawOffset = time_info['rawOffset']
+	 dstOffset = time_info['dstOffset'] 
+       %>
        <dt>
 	 <%= t('cities.show.timezone_dst') %>
        </dt>
@@ -28,8 +34,8 @@
 	<dd>
 	  <%= time_info['timeZoneName'] %>
 	</dd>
-
     </dl>
+    <% end %>
   </div>
 </div>
 

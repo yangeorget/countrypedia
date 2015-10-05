@@ -32,7 +32,7 @@
 	 height="600" 
 	 frameborder="0" 
 	 style="border:0"
-	 src="https://www.google.com/maps/embed/v1/view?zoom=8&center=<%= info[:latitude] %>,<%= info[:longitude] %>&key=AIzaSyCRckkdFPzcbgqL2-PAhmo6aEDNU8hITQM" allowfullscreen>
+	 src="<%= Util::Google.maps_url(8, info[:latitude], info[:longitude]) %>" allowfullscreen>
       </iframe>
      </div>
   </div>

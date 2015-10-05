@@ -1,4 +1,4 @@
-<% weather = @country.weather(info['latlng'][0], info['latlng'][1]) %>
+<% weather = Util::Forecastio.weather(info['latlng'][0], info['latlng'][1]) %>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h2 class="panel-title">
@@ -6,6 +6,7 @@
     </h2>
   </div>
   <div class="panel-body">
+    <% if weather %>
     <dl class="dl-horizontal">
       <dt><%= t('countries.show.weather_summary') %></dt>
       <dd><%= weather.currently.summary %></dd>
@@ -22,8 +23,9 @@
       <dt><%= t('countries.show.weather_ozone') %></dt>
       <dd><%= weather.currently.ozone %> Dobson</dd>
     </dl>
+    <% end %>
     <p>
-      <%= t('countries.show.forecastio_link') %> <%= link_to 'forecast.io', "http://forecast.io/#/f/#{ info['latlng'][0] },#{ info['latlng'][1] }" %>.
+      <%= t('countries.show.forecastio_link') %> <%= link_to 'forecast.io',Util::Forecastio.link(info['latlng'][0], info['latlng'][1]) %>.
     </p>
   </div>
 </div>
