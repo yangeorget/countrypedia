@@ -35,6 +35,8 @@ class Util::Google
       :language => "#{ I18n.locale }"
     }
     HTTParty.get("https://maps.googleapis.com/maps/api/timezone/json?#{ params.to_query }")
+  rescue Exception
+    nil
   end
 
   def self.images_search(nb, query)
@@ -55,7 +57,7 @@ class Util::Google
         json['responseData']['results'].map { |result| result['unescapedUrl'] }
       end
     rescue Exception
-      nil
+      []
     end
   end
 end 

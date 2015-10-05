@@ -15,6 +15,8 @@ class City < ActiveRecord::Base
     latitude = latlng[0].strip
     longitude = latlng[1].strip
     {:population => population, :latitude => latitude, :longitude => longitude}
+  rescue Exception
+    {:population => nil, :latitude => nil, :longitude => nil}
   end
 
   def google_staticmaps_url(type, width, height)
