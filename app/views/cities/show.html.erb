@@ -1,7 +1,16 @@
 <% content_for :head do %>
     <title><%= t('cities.show.title', place: t(@city.name)) %></title>
-    <meta name="keywords" content="<%= t('cities.show.keywords', place: t(@city.name)) %>">
     <meta name="description" content="<%= t('cities.show.description', place: t(@city.name)) %>">
+    <meta property="og:title" content="<%= t('cities.show.title', place: t(@city.name)) %>" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= @city.google_staticmaps_url('roadmap', 300, 200) %>" />
+    <meta name="DC.Creator" content="Countrypedia" />
+    <meta name="DC.Subject" scheme="DCTERMS.LCSH" content="<%= t('cities.show.title', place: t(@city.name)) %>" />
+    <meta name="DC.Description" content="<%= t('cities.show.description', place: t(@city.name)) %>" />
+    <meta name="DC.Type" scheme="DCTERMS.DCMIType" content="Text" />
+    <meta name="DC.Format" scheme="DCTERMS.IMT" content="application/xhtml+xml" />
+
 <% end %>
 <% info = @city.geonames_info %> 
 <%= render partial: "shared/nav" %>

@@ -1,7 +1,15 @@
 <% content_for :head do %>
-<title><%= t('countries.show.title', place: t(@country.name)) %></title>
-<meta name="keywords" content="<%= t('countries.show.keywords', place: t(@country.name)) %>">
-<meta name="description" content="<%= t('countries.show.description', place: t(@country.name)) %>">
+    <title><%= t('countries.show.title', place: t(@country.name)) %></title>
+    <meta name="description" content="<%= t('countries.show.description', place: t(@country.name)) %>">
+    <meta property="og:title" content="<%= t('countries.show.title', place: t(@country.name)) %>" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= @country.google_staticmaps_url('roadmap', 300, 200) %>" />
+    <meta name="DC.Creator" content="Countrypedia" />
+    <meta name="DC.Subject" scheme="DCTERMS.LCSH" content="<%= t('countries.show.title', place: t(@country.name)) %>" />
+    <meta name="DC.Description" content="<%= t('countries.show.description', place: t(@country.name)) %>" />
+    <meta name="DC.Type" scheme="DCTERMS.DCMIType" content="Text" />
+    <meta name="DC.Format" scheme="DCTERMS.IMT" content="application/xhtml+xml" />
 <% end %>
 <% info = Util::Restcountries.country_by_code2(@country.code2) %>
 <%= render partial: "shared/nav" %>

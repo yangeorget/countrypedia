@@ -1,7 +1,14 @@
 <% content_for :head do %>
     <title><%= t(:title) %></title>
-    <meta name="keywords" content="<%= t(:keywords) %>">
     <meta name="description" content="<%= t(:description) %>">
+    <meta property="og:title" content="<%= t(:title) %>" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta name="DC.Creator" content="Countrypedia" />
+    <meta name="DC.Subject" scheme="DCTERMS.LCSH" content="<%= t(:title) %>" />
+    <meta name="DC.Description" content="<%= t(:description) %>" />
+    <meta name="DC.Type" scheme="DCTERMS.DCMIType" content="Text" />
+    <meta name="DC.Format" scheme="DCTERMS.IMT" content="application/xhtml+xml" />
 <% end %>
 <%= render partial: "shared/nav" %>
 <div class="jumbotron">

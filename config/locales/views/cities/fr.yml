@@ -6,8 +6,7 @@ fr:
       random_text: "Cliquez ici et laissez Countrypedia choisir une ville pour vous!"	
     show:
       title: "Countrypedia, votre guide de voyage - %{place}"
-      keywords: "countrypedia,encyclopedie du tourisme,guide de voyage,voyage %{place},information %{place},meteo %{place},carte %{place},plan %{place}"
-      description: "Faites confiance à Countrypedia, l'encyclopédie du tourisme, pour préparer votre voyage. Countrypedia aggrège différentes sources d'information, mises à jour en temps réel, et est disponible dans plusieurs langues."
+      description: "Countrypedia, l'encyclopédie du tourisme, aggrège différentes sources d'information, mises à jour en temps réel, et est disponible dans plusieurs langues."
       celsiusdegrees: "degrés Celsius"
       country: "Pays"
       facts: "Quelques faits" 
